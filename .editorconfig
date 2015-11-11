@@ -1,0 +1,40 @@
+root = true
+
+# defailt setting
+[*]
+indent_style = space
+charset = utf-8
+end_of_line = lf
+indent_size = 2
+
+[package.json]
+indent_style = space
+
+# go
+[*.go]
+indent_style = tab
+indent_size = 4
+
+[*.swift]
+indent_size = 4
+
+# C,C++,Objc-C
+[*.{h,m}]
+indent_size = 2
+
+# markdown
+[*.md]
+indent_size = 4
+trim_trailing_whitespace = false
+insert_final_newline = true
+
+# PHP
+[*.php]
+indent_size = 4
+
+# java
+[*.java]
+indent_size = 4
+
+# js
+indent_size = 2

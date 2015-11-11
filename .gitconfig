@@ -1,0 +1,103 @@
+[user]
+	name = sgr-ksmt
+	email = suguru-kishimoto@cookpad.com
+  # signingkey = 24FB917629FFEAE9
+  # signingkey = ACD8BE412CE2407D
+[core]
+	excludesfile = ~/.gitignore_global
+	editor = vim -c \"set fenc=utf-8\"
+	autocrlf = input
+	whitespace = cr-at-eol
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[alias]
+	# aliases
+	aliases = !git config --get-regexp alias | grep -v aliases | sed 's/^alias.//g' | sed 's/ /\\\t => /1' | sort
+	undo = "!f() { git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; }; f"
+	# commit
+	c = commit -v
+	ce = commit -v --allow-empty
+	# check out
+	b = branch
+	co = checkout
+	cob = checkout -b
+	cot = checkout -t
+  o = checkout
+  bdm = !git branch --merged | grep -vE '^\\*|master$|develop$' | xargs -I % git branch -d %
+	# remote
+	r = remote
+	rau = remote add upstream
+	# log
+	tree = log --graph --color=always --format=\"%x09%C(auto)%h%Creset -%C(auto)%d%Creset %s %C(green)(%cr)%Creset %C(blue)<%an>%Creset\"
+        treeall = log --graph --all --color=always --format=\"%x09%C(auto)%h%Creset -%C(auto)%d%Creset %s %C(green)(%cr)%Creset %C(blue)<%an>%Creset\"
+	today = "!f () {\
+	             git log --oneline --reverse --branches \
+                     --since=midnight --date=iso \
+	             --author=\"$(git config user.name)\" \
+	             --format=\" - %C(auto)%h%Creset : %s %C(green)(%ad)%Creset\";\
+          	 };f"
+	today-output = "!f () {\
+	                    git log --oneline --reverse --branches \
+                            --since=midnight --date=iso \
+	                    --author=\"$(git config user.name)\" \
+	                    --format=\" - %h : %s \";\
+	                };f"
+	# commit, merge
+	st = status -sb
+#	addall = add -A .
+	mnf = merge --no-ff
+	fix = commit --amend
+	unstage = reset HEAD
+	allcommit = commit -a
+	# pull push
+	pl = pull
+	plr = pull --rebase
+  pu = push
+  pucb = ![[ $(git config "branch.$(git symbolic-ref --short HEAD).merge") = '' ]] && git push -u origin $(git symbolic-ref --short HEAD) || git push
+  puu = push -u
+	# remote
+	update = fetch --all --prune
+	push-all = !git push --all && git push --tags
+	rtag = ls-remote --tags
+	seepr = !hub browse -- pull/$(git symbolic-ref --short HEAD)
+	# 現在いるブランチのPull Requestを新規作成する
+	pr = !hub browse -- compare/$(git symbolic-ref --short HEAD)'?'expand=1'&'body=%23%23%20%E7%9B%AE%E7%9A%84%0A%0A%23%23%20%E5%A4%89%E6%9B%B4%E5%86%85%E5%AE%B9
+	f = fetch
+[color]
+	ui = auto
+[log]
+	decorate = short
+[push]
+	default = simple
+[merge "mergepbx"]
+	name = Xcode project files merger
+	driver = mergepbx %O %A %B
+	note = auto-generated configuration by cpad2 upgrade
+[credential]
+	helper = osxkeychain
+[ghq]
+	root = ~/src
+[github]
+	user = sgr-ksmt
+[ghi]
+	token = !security find-internet-password -a sgr-ksmt -s github.com -l 'ghi token' -w
+[init]
+	templatedir = ~/.git_template
+[fetch]
+	prune = true
+[pager]
+	diff = less
+[diff]
+	compactionHeuristic = true
+# [gpg]
+# 	program = /usr/local/bin/gpg
+# [commit]
+# 	gpgsign = true
+[http]
+	cookiefile = /Users/suguru-kishimoto/.gitcookies
+[include]
+  path = ~/.gitconfig.local
