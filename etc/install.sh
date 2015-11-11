@@ -1,6 +1,6 @@
 #...
 
-DOTPATH=~/dotfiles; export DOTPATH
+DOTPATH=~/.dotfiles; export DOTPATH
 GITHUB_URL="https://github.com/sgr-ksmt/dotfiles.git"; export GITHUB_URL
 
 is_exists() {
