@@ -97,12 +97,6 @@ setopt hist_reduce_blanks
 setopt extended_glob
 
 ########################################
-# キーバインド
-
-# ^R で履歴検索をするときに * でワイルドカードを使用出来るようにする
-bindkey '^R' history-incremental-pattern-search-backward
-
-########################################
 
 # pbcopy -> C
 # $ hoge.txt C
@@ -155,6 +149,16 @@ alias cpgc='cool-peco git-checkout'
 #######################################
 
 ## custom function & keybind
+
+## cmd history serarch with peco
+
+function peco-select-history() {
+  BUFFER=$(\history -n -r 1 | peco --query "$LBUFFER")
+  CURSOR=$#BUFFER
+  zle clear-screen
+}
+zle -N peco-select-history
+bindkey '^r' peco-select-history
 
 # limitation of ls 
 # http://qiita.com/yuyuchu3333/items/b10542db482c3ac8b059
