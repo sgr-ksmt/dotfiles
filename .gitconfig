@@ -1,0 +1,50 @@
+[user]
+  name = Su-
+	email = su@sfidante.co.jp
+[core]
+	excludesfile = /Users/Kishimoto/.gitignore_global
+	editor = emacs -nw
+	autocrlf = false
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[alias]
+	co = checkout
+	tree = log --oneline --graph  --all --format=\"%x09%C(yellow)%h%Creset %C(black bold)(%an,%ar)%Creset %C(magenta reverse)%d%Creset %s\"
+	st = status
+	addall = add -A .
+	today = log --oneline --since='12 hour ago'
+	history = "!f () { \
+		if [ $# -ne 1 ];then \
+		   echo \"Usage: git history 12\";\
+		   exit;\
+		fi;\
+		echo git log --oneline --since=\""${1} hour ago"\"; \
+		git log --oneline --since=\""${1} hour ago"\"; \
+		};f"
+	cbranch = "!f(){ git checkout -b "$2" "$1/$2";};f"
+	update = fetch --all --prune
+        cibranch = "!f () { \
+		 if [ $# -ne 1 ];then \
+		     echo \"Usage: git cibranch #issue_number\";\
+		     exit;\
+		 fi;\
+		 git issue $1; \
+		 git checkout -b issues/id/$1; \
+		 };f"
+	mnf = merge --no-ff
+[color]
+	ui = auto
+[log]
+	decorate = short
+[push]
+	default = simple
+
+[merge "mergepbx"]
+    name = XCode project files merger
+    driver = /usr/local/bin/mergepbx %O %A %B
+[credential]
+	helper = osxkeychain
