@@ -22,6 +22,11 @@ die() {
     exit "${2:-1}"
 }
 
+if [ -e $DOTPATH ] then
+    echo "$DOTPAT is already exist. clear it."
+    rm -rf $DOTPATH
+fi
+
 # git が使えるなら git
 if has "git"; then
     git clone --recursive "$GITHUB_URL" "$DOTPATH"
