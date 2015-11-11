@@ -23,7 +23,7 @@ die() {
 }
 
 if [ -e $DOTPATH ]; then
-    echo "$DOTPAT is already exist. clear it."
+    echo "$DOTPATH is already exist. clear it."
     rm -rf $DOTPATH
 fi
 
