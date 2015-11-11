@@ -1,11 +1,30 @@
 #...
 
-DOTPATH=~/.dotfiles
+DOTPATH=~/dotfiles; export DOTPATH
+GITHUB_URL=""; export GITHUB_URL
+
+is_exists() {
+    which "$1" >/dev/null 2>&1
+    return $?
+}
+
+# has is wrapper function
+has() {
+    is_exists "$@"
+}
+
+e_error() {
+    printf " \033[31m%s\033[m\n" "✖ $*" 1>&2
+}
+
+die() {
+    e_error "$1" 1>&2
+    exit "${2:-1}"
+}
 
 # git が使えるなら git
 if has "git"; then
     git clone --recursive "$GITHUB_URL" "$DOTPATH"
-
 # 使えない場合は curl か wget を使用する
 elif has "curl" || has "wget"; then
     tarball="https://github.com/b4b4r07/dotfiles/archive/master.tar.gz"
@@ -21,12 +40,11 @@ elif has "curl" || has "wget"; then
     
     # 解凍したら，DOTPATH に置く
     mv -f dotfiles-master "$DOTPATH"
-
 else
     die "curl or wget required"
 fi
 
-cd ~/.dotfiles
+cd $DOTPATH
 if [ $? -ne 0 ]; then
     die "not found: $DOTPATH"
 fi
