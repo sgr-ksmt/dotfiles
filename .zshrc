@@ -189,7 +189,7 @@ if [[ -f $HOME/antigen/antigen.zsh ]]; then
   antigen apply
 
   # enhancd
-  ENHANCD_FILTER=peco; export ENHANCD_FILTER
+  ENHANCD_FILTER=peco:fzf; export ENHANCD_FILTER
 fi
 
 
