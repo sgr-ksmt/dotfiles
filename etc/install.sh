@@ -1,5 +1,5 @@
 #...
-
+CURRENT_DIR=$(cd $(dirname $0) && pwd)
 DOTPATH=~/.dotfiles; export DOTPATH
 GITHUB_URL="https://github.com/sgr-ksmt/dotfiles.git"; export GITHUB_URL
 
@@ -61,4 +61,5 @@ do
 
     ln -snfv "$DOTPATH/$f" "$HOME/$f"
 done
+cd $CURRENT_DIR
 exec zsh
