@@ -6,11 +6,17 @@
 
 export LANG=ja_JP.UTF-8
 
+typeset -U path cdpath fpath manpath
+
+export PATH="$HOME/.rbenv/bin:$PATH" 
+eval "$(rbenv init - zsh)"
+
 # auto completions
-fpath=(/usr/local/share/zsh-completions $fpath)
+fpath=($(brew --prefix)/share/zsh-completions $fpath)
 fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
-autoload -Uz compinit
-compinit -u -C
+
+autoload -U compinit
+compinit -uC
 
 autoload -Uz colors
 colors
@@ -30,6 +36,11 @@ REPORTTIME=3
 # completion style
 # 補完で小文字でも大文字にマッチさせる
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*' format '%B%d%b'
+zstyle ':completion:*:warnings' format 'No matches for: %d'
+zstyle ':completion:*' group-name ''
 
 # ../ の後は今いるディレクトリを補完しない
 zstyle ':completion:*' ignore-parents parent pwd ..
