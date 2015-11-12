@@ -37,6 +37,9 @@
 		 };f"
 	mnf = merge --no-ff
 	o = checkout
+	pl = pull
+	pu = push
+	puu = push -u
 [color]
 	ui = auto
 [log]
