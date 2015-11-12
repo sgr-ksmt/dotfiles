@@ -1,25 +1,42 @@
-# 少し凝った zshrc
-# License : MIT
+# based on :少し凝った zshrc
 # http://mollifier.mit-license.org/
 
 ########################################
 
+# language
 export LANG=ja_JP.UTF-8
 
+# don't duplicate path
 typeset -U path cdpath fpath manpath
 
+# rbenv path
 export PATH="$HOME/.rbenv/bin:$PATH" 
 eval "$(rbenv init - zsh)"
 
-# auto completions
+# auto completions path
 fpath=($(brew --prefix)/share/zsh-completions $fpath)
 fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 
+# compinit
 autoload -U compinit
-compinit -uC
+compinit -uC # C: uncheck insecure, fast
 
+# enable colors
 autoload -Uz colors
 colors
+
+# define LS_COLORS
+export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+
+# color defines
+local DEFAULT='%f'
+local RED='%F{red}'
+local GREEN='%F{green}'
+local YELLOW='%F{yellow}'
+local BLUE='%F{blue}'
+local PURPLE='%F{purple}'
+local LIGHT_BLUE='%F{cyan}'
+local WHITE='%F{white}'
 
 # emacs key bind
 bindkey -e
@@ -34,47 +51,53 @@ REPORTTIME=3
 
 ########################################
 # completion style
-# 補完で小文字でも大文字にマッチさせる
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-
+zstyle ':completion:*:default' menu select=2
 zstyle ':completion:*' verbose yes
-zstyle ':completion:*' format '%B%d%b'
-zstyle ':completion:*:warnings' format 'No matches for: %d'
+zstyle ':completion:*' completer _expand _complete _match _prefix _approximate _list _history
+zstyle ':completion:*:messages' format $YELLOW'%d'$DEFAULT
+zstyle ':completion:*:warnings' format $RED'No matches for:'$YELLOW' %d'$DEFAULT
+zstyle ':completion:*:descriptions' format $YELLOW'completing %B%d%b'$DEFAULT
+zstyle ':completion:*:corrections' format $YELLOW'%B%d '$RED'(errors: %e)%b'$DEFAULT
+zstyle ':completion:*:options' description 'yes'
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' '+m:{A-Z}={a-z}'
 zstyle ':completion:*' group-name ''
+zstyle ':completion:*' list-separator $GREEN'-->'$DEFAULT
+zstyle ':completion:*:manuals' separate-sections true
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
-# ../ の後は今いるディレクトリを補完しない
+# ignore parent ../
 zstyle ':completion:*' ignore-parents parent pwd ..
 
-# sudo の後ろでコマンド名を補完する
+# sudo completion
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
                    /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
 
 # ps コマンドのプロセス名補完
 zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
 
-########################################
 
 # git Prompt Setting
 source /usr/local/git/contrib/completion/git-prompt.sh
-# function git(){hub "$@"}
 
 ## Prompt
 setopt prompt_subst
 setopt transient_rprompt
 precmd () {
-PROMPT='%F{green}[%n]%f %F{blue}%~%f %F{red}$(__git_ps1 "(%s)")%f
+PROMPT=$GREEN'[%n]'$DEFAULT' '$BLUE'%~'$DEFAULT' '$RED'$(__git_ps1 "(%s)")'$DEFAULT'
 $ '
-RPROMPT='%{${fg[green]}%}(%*)%{${reset_color}%}'
+RPROMPT=$GREEN'(%*)'$DEFAULT
 }
 
+# git ps1 settings
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
 GIT_PS1_SHOWUPSTREAM="auto"
 GIT_PS1_DESCRIBE_STYLE="default"
 GIT_PS1_SHOWCOLORHINTS=true
+
 ########################################
-# オプション
+# set options
 # 日本語ファイル名を表示可能にする
 setopt print_eight_bit
 
@@ -151,7 +174,6 @@ if [[ -f $HOME/antigen/antigen.zsh ]]; then
   ENHANCD_FILTER=peco; export ENHANCD_FILTER
 fi
 
-# vim:set ft=zsh:
 
 #######################################
 
@@ -235,10 +257,10 @@ bindkey '^]' show_status
 ###########################################
 
 ## zsh compile
-# if [ ! -f ~/.zshrc.zwc -o ~/.zshrc -nt ~/.zshrc.zwc ]; then
-#   zcompile ~/.zshrc
-# fi
-## zsh profile
+ if [ ! -f ~/.zshrc.zwc -o ~/.zshrc -nt ~/.zshrc.zwc ]; then
+   zcompile ~/.zshrc
+ fi
+# zsh profile
 if (which zprof > /dev/null) ;then
   zprof | less
 fi
