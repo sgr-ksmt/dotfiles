@@ -51,6 +51,15 @@ REPORTTIME=3
 
 ########################################
 # set options
+# http://voidy21.hatenablog.jp/entry/20090902/1251918174
+
+setopt auto_param_slash
+
+setopt list_types
+
+setopt auto_menu
+
+setopt interactive_comments
 
 # prompt
 setopt prompt_subst
@@ -107,6 +116,7 @@ zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' '+m:{A-Z}={a-z}'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' list-separator '-->'
 zstyle ':completion:*:manuals' separate-sections true
+zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 # ignore parent ../
