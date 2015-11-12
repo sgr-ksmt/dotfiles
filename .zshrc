@@ -10,7 +10,7 @@ export LANG=ja_JP.UTF-8
 typeset -U path cdpath fpath manpath
 
 # rbenv path
-export PATH="$HOME/.rbenv/bin:$PATH" 
+export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init - zsh)"
 
 # auto completions path
@@ -50,55 +50,18 @@ SAVEHIST=100000
 REPORTTIME=3
 
 ########################################
-# completion style
-zstyle ':completion:*:default' menu select=2
-zstyle ':completion:*' verbose yes
-zstyle ':completion:*' completer _expand _complete _match _prefix _approximate _list _history
-zstyle ':completion:*:messages' format $YELLOW'%d'$DEFAULT
-zstyle ':completion:*:warnings' format $RED'No matches for:'$YELLOW' %d'$DEFAULT
-zstyle ':completion:*:descriptions' format $YELLOW'completing %B%d%b'$DEFAULT
-zstyle ':completion:*:corrections' format $YELLOW'%B%d '$RED'(errors: %e)%b'$DEFAULT
-zstyle ':completion:*:options' description 'yes'
-zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' '+m:{A-Z}={a-z}'
-zstyle ':completion:*' group-name ''
-zstyle ':completion:*' list-separator $GREEN'-->'$DEFAULT
-zstyle ':completion:*:manuals' separate-sections true
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# set options
 
-# ignore parent ../
-zstyle ':completion:*' ignore-parents parent pwd ..
-
-# sudo completion
-zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
-                   /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
-
-# ps コマンドのプロセス名補完
-zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
-
-
-# git Prompt Setting
-source /usr/local/git/contrib/completion/git-prompt.sh
-
-## Prompt
+# prompt
 setopt prompt_subst
 setopt transient_rprompt
-precmd () {
-PROMPT=$GREEN'[%n]'$DEFAULT' '$BLUE'%~'$DEFAULT' '$RED'$(__git_ps1 "(%s)")'$DEFAULT'
-$ '
-RPROMPT=$GREEN'(%*)'$DEFAULT
-}
 
-# git ps1 settings
-GIT_PS1_SHOWDIRTYSTATE=true
-GIT_PS1_SHOWSTASHSTATE=true
-GIT_PS1_SHOWUNTRACKEDFILES=true
-GIT_PS1_SHOWUPSTREAM="auto"
-GIT_PS1_DESCRIBE_STYLE="default"
-GIT_PS1_SHOWCOLORHINTS=true
+# enable brach : ex -> mkdir {1 2 3}
+setopt brace_ccl
 
-########################################
-# set options
 # 日本語ファイル名を表示可能にする
+
+
 setopt print_eight_bit
 
 # Ctrl+Dでzshを終了しない
@@ -129,6 +92,51 @@ setopt hist_reduce_blanks
 
 # 高機能なワイルドカード展開を使用する
 setopt extended_glob
+
+########################################
+# completion style
+zstyle ':completion:*:default' menu select=2
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*' completer _expand _complete _match _prefix _approximate _list _history
+zstyle ':completion:*:messages' format $YELLOW'%d'$DEFAULT
+zstyle ':completion:*:warnings' format $RED'No matches for:'$YELLOW' %d'$DEFAULT
+zstyle ':completion:*:descriptions' format $YELLOW'completing %B%d%b'$DEFAULT
+zstyle ':completion:*:corrections' format $YELLOW'%B%d '$RED'(errors: %e)%b'$DEFAULT
+zstyle ':completion:*:options' description 'yes'
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' '+m:{A-Z}={a-z}'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' list-separator '-->'
+zstyle ':completion:*:manuals' separate-sections true
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
+# ignore parent ../
+zstyle ':completion:*' ignore-parents parent pwd ..
+
+# sudo completion
+zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
+                   /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
+
+# ps コマンドのプロセス名補完
+zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
+
+
+# git Prompt Setting
+source /usr/local/git/contrib/completion/git-prompt.sh
+
+## Prompt
+precmd () {
+PROMPT=$GREEN'[%n]'$DEFAULT' '$BLUE'%~'$DEFAULT' '$RED'$(__git_ps1 "(%s)")'$DEFAULT'
+$ '
+RPROMPT=$GREEN'(%*)'$DEFAULT
+}
+
+# git ps1 settings
+GIT_PS1_SHOWDIRTYSTATE=true
+GIT_PS1_SHOWSTASHSTATE=true
+GIT_PS1_SHOWUNTRACKEDFILES=true
+GIT_PS1_SHOWUPSTREAM="auto"
+GIT_PS1_DESCRIBE_STYLE="default"
+GIT_PS1_SHOWCOLORHINTS=true
 
 ########################################
 
@@ -189,7 +197,7 @@ function peco-select-history() {
 zle -N peco-select-history
 bindkey '^r' peco-select-history
 
-# limitation of ls 
+# limitation of ls
 # http://qiita.com/yuyuchu3333/items/b10542db482c3ac8b059
 
 chpwd() {
@@ -238,14 +246,14 @@ function show_status() {
         zle accept-line
         return 0
     fi
-    echo 
+    echo
     ls_abbrev
     if [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" = 'true' ]; then
         echo -e "\e[0;33m--- git status ---\e[0m"
         git status -sb
-    echo 
+    echo
     fi
-    echo 
+    echo
     zle reset-prompt
     return 0
 }
