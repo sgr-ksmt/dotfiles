@@ -8,7 +8,7 @@ export LANG=ja_JP.UTF-8
 
 # auto completions
 fpath=(/usr/local/share/zsh-completions $fpath)
-
+fpath=(/usr/local/git/contrib/completion/ $fpath)
 autoload -Uz compinit
 compinit -u -C
 
@@ -39,8 +39,9 @@ zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
                    /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
 
 # ps コマンドのプロセス名補完
-# zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
-source /usr/local/git/contrib/completion/git-flow-completion.zsh
+zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
+
+# source /usr/local/git/contrib/completion/git-flow-completion.zsh
 ########################################
 
 # git Prompt Setting
