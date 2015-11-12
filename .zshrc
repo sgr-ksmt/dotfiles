@@ -142,10 +142,6 @@ fi
 
 # vim:set ft=zsh:
 
-## cool-peco
-source $HOME/cool-peco/cool-peco
-alias cpgc='cool-peco git-checkout'
-
 #######################################
 
 ## custom function & keybind
