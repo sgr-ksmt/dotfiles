@@ -4,7 +4,7 @@
 [core]
 	excludesfile = /Users/Kishimoto/.gitignore_global
 	editor = emacs -nw
-	autocrlf = false
+	autocrlf = input
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -41,7 +41,7 @@
 	pu = push
 	puu = push -u
 [color]
-	ui = auto
+	ui = always
 [log]
 	decorate = short
 [push]
