@@ -1,5 +1,6 @@
 #...
-DOTPATH=~/dotfiles
+DOTPATH=~/src/dotfiles
+echo $DOTPATH
 for f in .??*
 do
     [ "$f" = ".git" ] && continue
