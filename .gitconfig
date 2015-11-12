@@ -36,6 +36,7 @@
 		 git checkout -b issues/id/$1; \
 		 };f"
 	mnf = merge --no-ff
+	o = checkout
 [color]
 	ui = auto
 [log]
