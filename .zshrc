@@ -41,13 +41,11 @@ zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
 # ps コマンドのプロセス名補完
 # zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
 
-source /usr/local/git/contrib/completion/git-completion.zsh
-
 ########################################
 
 # git Prompt Setting
 source /usr/local/git/contrib/completion/git-prompt.sh
-function git(){hub "$@"}
+# function git(){hub "$@"}
 
 ## Prompt
 setopt prompt_subst
