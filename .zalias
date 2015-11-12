@@ -30,13 +30,14 @@ alias reboot_shell='exec $SHELL -l'
 #####
 
 # git alias
+alias g='git'
 alias gf='git-flow'
 alias gall='git addall'
 alias gb='git branch'
 alias gbd='git branch -d '
-alias gc='git commit'
+alias gc='git commit -v'
 alias gcall='gall && gc'
-alias gcm='git commit -m'
+alias gcm='git commit -m -v'
 alias gco='git checkout'
 alias gcob='git checkout -b'
 alias gcom='git checkout master'
