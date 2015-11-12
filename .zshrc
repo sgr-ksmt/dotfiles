@@ -8,7 +8,7 @@ export LANG=ja_JP.UTF-8
 
 # auto completions
 fpath=(/usr/local/share/zsh-completions $fpath)
-fpath=(/usr/local/git/contrib/completion/ $fpath)
+fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 autoload -Uz compinit
 compinit -u -C
 
@@ -41,12 +41,11 @@ zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
 # ps コマンドのプロセス名補完
 zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
 
-# source /usr/local/git/contrib/completion/git-flow-completion.zsh
 ########################################
 
 # git Prompt Setting
 source /usr/local/git/contrib/completion/git-prompt.sh
-function git(){hub "$@"}
+# function git(){hub "$@"}
 
 ## Prompt
 setopt prompt_subst
@@ -210,15 +209,14 @@ function show_status() {
         zle accept-line
         return 0
     fi
-    echo
+    echo 
     ls_abbrev
-    echo
     if [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" = 'true' ]; then
         echo -e "\e[0;33m--- git status ---\e[0m"
         git status -sb
-    echo
+    echo 
     fi
-    echo
+    echo 
     zle reset-prompt
     return 0
 }
@@ -230,9 +228,9 @@ bindkey '^]' show_status
 ###########################################
 
 ## zsh compile
-if [ ! -f ~/.zshrc.zwc -o ~/.zshrc -nt ~/.zshrc.zwc ]; then
-   zcompile ~/.zshrc
-fi
+# if [ ! -f ~/.zshrc.zwc -o ~/.zshrc -nt ~/.zshrc.zwc ]; then
+#   zcompile ~/.zshrc
+# fi
 ## zsh profile
 if (which zprof > /dev/null) ;then
   zprof | less
