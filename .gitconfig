@@ -52,3 +52,5 @@
     driver = /usr/local/bin/mergepbx %O %A %B
 [credential]
 	helper = osxkeychain
+[ghq]
+	root = /Users/Kishimoto/src
