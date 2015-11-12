@@ -45,7 +45,7 @@ source /usr/local/git/contrib/completion/git-flow-completion.zsh
 
 # git Prompt Setting
 source /usr/local/git/contrib/completion/git-prompt.sh
-# function git(){hub "$@"}
+function git(){hub "$@"}
 
 ## Prompt
 setopt prompt_subst

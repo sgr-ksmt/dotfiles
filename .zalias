@@ -30,6 +30,7 @@ alias reboot_shell='exec $SHELL -l'
 #####
 
 # git alias
+alias gf='git-flow'
 alias gall='git addall'
 alias gb='git branch'
 alias gbd='git branch -d '
