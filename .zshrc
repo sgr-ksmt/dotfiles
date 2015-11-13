@@ -203,7 +203,7 @@ fi
 ## cmd history serarch with peco
 
 function peco-select-history() {
-   BUFFER=$(\history -n -r 1 | fzf --query "$LBUFFER")
+   BUFFER=$(\history -n -r 1 | fzf --query "$LBUFFER" --prompt="History > ")
 #  BUFFER=$(\history -n -r 1 | peco --query "$LBUFFER")
   CURSOR=$#BUFFER
   zle clear-screen
@@ -287,6 +287,10 @@ function peco-src () {
 }
 zle -N peco-src
 bindkey '^[' peco-src
+
+# gitignore.io
+function _gigen() { curl -s https://www.gitignore.io/api/$1 ;}
+alias gigen='_gigen $(_gigen list | gsed "s/,/\n/g" | fzf --multi --prompt="Select ignore >" | gsed "N; s/\n/,/g")'
 
 ###########################################
 
