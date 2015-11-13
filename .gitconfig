@@ -23,7 +23,7 @@
 	pu = push
 	puu = push -u
 	update = fetch --all --prune
-	push-all = "!f() { git push --all && git push --tags;}; f"
+	push-all = "!f() { git push -u --all && git push --tags;}; f"
 [color]
 	ui = auto
 [log]
