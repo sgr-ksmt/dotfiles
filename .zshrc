@@ -199,7 +199,7 @@ fi
 ## custom function & keybind
 
 # hub -> git
-function git(){hub "$@"}
+# function git(){hub "$@"}
 ## cmd history serarch with peco
 
 function peco-select-history() {

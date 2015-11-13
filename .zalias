@@ -49,6 +49,7 @@ alias reboot_shell='exec $SHELL -l'
 #####
 
 # git alias
+alias github='hub'
 alias g='git'
 alias gf='git-flow'
 alias gall='git addall'
