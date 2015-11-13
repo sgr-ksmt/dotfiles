@@ -202,7 +202,8 @@ fi
 ## cmd history serarch with peco
 
 function peco-select-history() {
-  BUFFER=$(\history -n -r 1 | peco --query "$LBUFFER")
+   BUFFER=$(\history -n -r 1 | fzf --query "$LBUFFER")
+#  BUFFER=$(\history -n -r 1 | peco --query "$LBUFFER")
   CURSOR=$#BUFFER
   zle clear-screen
 }
