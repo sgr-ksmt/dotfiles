@@ -211,6 +211,8 @@ function peco-select-history() {
 zle -N peco-select-history
 bindkey '^r' peco-select-history
 
+function gigen() { curl -L -s https://www.gitignore.io/api/$@ ;}
+
 # limitation of ls
 # http://qiita.com/yuyuchu3333/items/b10542db482c3ac8b059
 
