@@ -16,12 +16,13 @@
 	tree = log --oneline --graph  --all --format=\"%x09%C(yellow)%h%Creset %C(black bold)(%an,%ar)%Creset %C(magenta reverse)%d%Creset %s\"
 	st = status -sb
 	addall = add -A .
-	today = log --oneline --since='12 hour ago'
+	today = log --oneline --since='24 hour ago'
 	mnf = merge --no-ff
 	o = checkout
 	pl = pull
 	pu = push
 	puu = push -u
+	update = fetch --all --prune
 [color]
 	ui = auto
 [log]
