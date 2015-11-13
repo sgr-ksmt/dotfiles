@@ -41,7 +41,7 @@
 	pu = push
 	puu = push -u
 [color]
-	ui = always
+	ui = auto
 [log]
 	decorate = short
 [push]
