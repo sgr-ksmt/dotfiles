@@ -1,8 +1,10 @@
 #  zmodload zsh/zprof && zprof
 # go path
-export GOROOT=`go env GOROOT`
-export GOPATH=~/go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+if [ -x "`which go`" ]; then
+    export GOROOT=`go env GOROOT`
+    export GOPATH=$HOME/code/go-local
+    export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+fi
 
 source $HOME/.zalias
 

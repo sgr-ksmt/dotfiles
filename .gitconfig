@@ -38,4 +38,4 @@
 [credential]
 	helper = osxkeychain
 [ghq]
-	root = /Users/Kishimoto/src
+	root = ~/src
