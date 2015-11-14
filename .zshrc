@@ -274,7 +274,7 @@ function show_status() {
 }
 
 zle -N show_status
-bindkey '^]' show_status
+bindkey '^[' show_status
 
 # ghq + peco 
 # cd to repository path
@@ -287,7 +287,7 @@ function fzf-src () {
   zle clear-screen
 }
 zle -N fzf-src
-bindkey '^[' fzf-src
+bindkey '^]' fzf-src
 
 # gitignore.io
 function _gigen() { curl -s https://www.gitignore.io/api/$1 ;}
