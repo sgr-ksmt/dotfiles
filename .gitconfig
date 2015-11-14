@@ -24,6 +24,7 @@
 	puu = push -u
 	update = fetch --all --prune
 	push-all = "!f() { git push -u --all && git push --tags;}; f"
+	fix = commit --amend
 [color]
 	ui = auto
 [log]
