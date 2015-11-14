@@ -1,8 +1,4 @@
 #  zmodload zsh/zprof && zprof
-# go path
-export GOROOT=`go env GOROOT`
-export GOPATH=~/go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 source $HOME/.zalias
 
@@ -30,4 +26,11 @@ if [ $+commands[rbenv] -ne 0 ]; then
   }
   rbenv_init
   unfunction rbenv_init
+fi
+
+# go path
+if [ -x "`which go`" ]; then
+    export GOROOT=`go env GOROOT`
+    export GOPATH=$HOME/go
+    export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 fi

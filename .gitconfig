@@ -1,5 +1,5 @@
 [user]
-	name = Su-
+	name = Suguru Kishimoto
 	email = su@sfidante.co.jp
 [core]
 	excludesfile = /Users/Kishimoto/.gitignore_global
@@ -38,4 +38,4 @@
 [credential]
 	helper = osxkeychain
 [ghq]
-	root = /Users/Kishimoto/src
+	root = ~/src
