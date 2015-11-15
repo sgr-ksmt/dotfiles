@@ -2,7 +2,6 @@
 
 # aliases
 
-
 alias la='ls -a'
 alias ll='ls -l'
 
@@ -49,15 +48,14 @@ function git-remote-tags(){
     (echo "$tags") | sed -e '/^ *$/d' | fzf --prompt "Remote Tags>"
 }
 alias -g RT='$(git-remote-tags)'
-
 # find hash
 function git-hash(){
     git log --oneline --branches | fzf --prompt "Hashes>" | awk '{print $1}'
- }
+}
 alias -g H='$(git-hash)'
 # find changed files
 function git-changed-files(){
-  git status --short | fzf --prompt "Changed Files>" | awk '{print $2}'
+    git status --short | fzf --prompt "Changed Files>" | awk '{print $2}'
 }
 alias -g F='$(git-changed-files)'
 
