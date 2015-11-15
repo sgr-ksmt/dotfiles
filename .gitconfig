@@ -13,7 +13,7 @@
 	trustExitCode = true
 [alias]
 	co = checkout
-	tree = log --oneline --graph  --all --format=\"%x09%C(yellow)%h%Creset %C(black bold)(%an,%ar)%Creset %C(magenta reverse)%d%Creset %s\"
+	tree = log --graph --color=always  --format=\"%x09%C(yellow)%h%Creset%C(auto)%d %s %C(blue)(%cr)%Creset\"  # \"%x09%C(yellow)%h%Creset %C(blue)(%an,%ar)%Creset %C(magenta reverse)%d%Creset %s\"
 	st = status -sb
 	addall = add -A .
 	today = log --oneline --since='24 hour ago'
