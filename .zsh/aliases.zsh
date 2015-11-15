@@ -15,28 +15,6 @@ alias mkdir='mkdir -p'
 # enable alias after sudu
 alias sudo='sudo '
 
-################################
-# global alias
-alias -g L='| less'
-alias -g G='| grep'
-## for git (with peco)
-alias -g B='`git branch -a | fzf --prompt "Branches>" | head -n 1 | sed -e "s/^\*\s*//g"`'
-alias -g R='`git remote | fzf --prompt "remotes>" | head -n 1`'
-alias -g T='`git tag | fzf --prompt "tags>" | head -n 1`'
-alias -g RT='`git ls-remote --tags | awk "{ print $2 }" | fzf`'
-# git + peco
-# find hash with peco
-function git-hash(){
-   git log --oneline --branches | peco --prompt "hashes>" | awk '{print $1}'
- }
-
-# find changed files
-function git-changed-files(){
-  git status --short | peco --prompt "changed files>" | awk '{print $2}'
-}
-alias -g F='$(git-changed-files)'
-alias -g H='$(git-hash)'
-
 alias cof='clear; ls -lrt'
 alias xcrmc='rm -rf ~/Library/Developer/Xcode/DerivedData/*'
 alias df='df -h'
@@ -47,6 +25,42 @@ alias mou='open -a "/Applications/Mou.app"'
 alias openxcw='~/custom_shell/openxcw.sh'
 alias zipcontentfiles='find . -maxdepth 1 -mindepth 1 -type d -exec zip -r {}.zip {} \;'
 alias reboot_shell='exec $SHELL -l'
+
+################################
+## global alias
+
+# less
+alias -g L='| less'
+# grep
+alias -g G='| grep'
+
+## for git
+
+# branches
+alias -g B='`git branch -a | fzf --prompt "Branches>" | head -n 1 | sed -e "s/^\*\s*//g"`'
+# remotes
+alias -g R='`git remote | fzf --prompt "Remotes>" | head -n 1`'
+# tags
+alias -g T='`git tag | fzf --prompt "Tags>" | head -n 1`'
+# remote tags
+function git-remote-tags(){
+    local tags
+    tags=$(git ls-remote --tags | awk '{ print $2 }')
+    (echo "$tags") | fzf --prompt "Remote Tags>"
+}
+alias -g RT='$(git-remote-tags)'
+
+# find hash
+function git-hash(){
+    git log --oneline --branches | fzf --prompt "Hashes>" | awk '{print $1}'
+ }
+alias -g H='$(git-hash)'
+# find changed files
+function git-changed-files(){
+  git status --short | fzf --prompt "Changed Files>" | awk '{print $2}'
+}
+alias -g F='$(git-changed-files)'
+
 #####
 
 # git alias
