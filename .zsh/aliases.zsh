@@ -46,7 +46,7 @@ alias -g T='`git tag | fzf --prompt "Tags>" | head -n 1`'
 function git-remote-tags(){
     local tags
     tags=$(git ls-remote --tags | awk '{ print $2 }')
-    (echo "$tags") | fzf --prompt "Remote Tags>"
+    (echo "$tags") | sed -e '/^ *$/d' | fzf --prompt "Remote Tags>"
 }
 alias -g RT='$(git-remote-tags)'
 
