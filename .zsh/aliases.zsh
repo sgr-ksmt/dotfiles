@@ -20,18 +20,19 @@ alias sudo='sudo '
 alias -g L='| less'
 alias -g G='| grep'
 ## for git (with peco)
-alias -g B='`git branch -a | peco --prompt "GIT BRANCH>" | head -n 1 | sed -e "s/^\*\s*//g"`'
-alias -g R='`git remote | peco --prompt "GIT REMOTE>" | head -n 1`'
-
+alias -g B='`git branch -a | fzf --prompt "Branches>" | head -n 1 | sed -e "s/^\*\s*//g"`'
+alias -g R='`git remote | fzf --prompt "remotes>" | head -n 1`'
+alias -g T='`git tag | fzf --prompt "tags>" | head -n 1`'
+alias -g RT='`git ls-remote --tags | awk "{ print $2 }" | fzf`'
 # git + peco
 # find hash with peco
 function git-hash(){
-   git log --oneline --branches | peco --prompt "GIT HASH>" | awk '{print $1}'
+   git log --oneline --branches | peco --prompt "hashes>" | awk '{print $1}'
  }
 
 # find changed files
 function git-changed-files(){
-  git status --short | peco --prompt "GIT CHANGE FILES>" | awk '{print $2}'
+  git status --short | peco --prompt "changed files>" | awk '{print $2}'
 }
 alias -g F='$(git-changed-files)'
 alias -g H='$(git-hash)'

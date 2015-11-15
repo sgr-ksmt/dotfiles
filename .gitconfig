@@ -12,19 +12,25 @@
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [alias]
+	# check out
 	co = checkout
-	tree = log --graph --color=always  --format=\"%x09%C(yellow)%h%Creset%C(auto)%d %s %C(blue)(%cr)%Creset\"  # \"%x09%C(yellow)%h%Creset %C(blue)(%an,%ar)%Creset %C(magenta reverse)%d%Creset %s\"
+	o = checkout
+	# log
+	tree = log --graph --color=always --format=\"%x09%C(yellow)%h%Creset%C(auto)%d %s %C(blue)(%cr)%Creset\"
+	today = log --oneline --since='24 hour ago' --color=always --format=\" - %C(yellow)%h%Creset%C(auto)%d %s %C(blue)(%cr)%Creset\"
+	# commit, merge
 	st = status -sb
 	addall = add -A .
-	today = log --oneline --since='24 hour ago'
 	mnf = merge --no-ff
-	o = checkout
+	fix = commit --amend
+	# pull push
 	pl = pull
 	pu = push
 	puu = push -u
+	# remote
 	update = fetch --all --prune
-	push-all = "!f() { git push -u --all && git push --tags;}; f"
-	fix = commit --amend
+	push-all = "!f() { git push --all && git push --tags;}; f"
+	rtag = ls-remote --tags
 [color]
 	ui = auto
 [log]
