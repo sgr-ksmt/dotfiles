@@ -16,8 +16,12 @@
 	co = checkout
 	o = checkout
 	# log
-	tree = log --graph --color=always --format=\"%x09%C(yellow)%h%Creset%C(auto)%d %s %C(blue)(%cr)%Creset\"
-	today = log --oneline --since='24 hour ago' --color=always --format=\" - %C(yellow)%h%Creset%C(auto)%d %s %C(blue)(%cr)%Creset\"
+	tree = log --all --graph --color=always --format=\"%x09%C(auto)%h%Creset -%C(auto)%d%Creset %s %C(green)(%cr)%Creset %C(blue)<%an>%Creset\"
+	today = "!f () {\
+	             git log --all --oneline --since=midnight --color=always --date=iso \
+	             --author=\"$(git config user.name)\" \
+	             --format=\" - %C(auto)%h%Creset -%C(auto)%d%Creset %s %C(green)(%ad)%Creset %C(blue)<%an>%Creset\";\
+	         };f"
 	# commit, merge
 	st = status -sb
 	addall = add -A .
