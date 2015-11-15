@@ -3,15 +3,10 @@
 
 ########################################
 
-# language
-export LANG=ja_JP.UTF-8
 
 # don't duplicate path
 typeset -U path cdpath fpath manpath
 
-# rbenv path
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init - zsh)"
 
 # auto completions path
 fpath=($(brew --prefix)/share/zsh-completions $fpath)
@@ -25,8 +20,6 @@ compinit -uC # C: uncheck insecure, fast
 autoload -Uz colors
 colors
 
-# define LS_COLORS
-export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 
 # color defines
 local DEFAULT='%f'
@@ -193,7 +186,6 @@ ENHANCD_FILTER=fzf:peco
 export ENHANCD_FILTER
 fi
 
-export FZF_DEFAULT_OPTS="--reverse"
 
 #######################################
 
