@@ -12,6 +12,8 @@
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [alias]
+	# aliases
+	aliases     = !git config --get-regexp alias
 	# check out
 	co = checkout
 	o = checkout
@@ -29,6 +31,7 @@
 	fix = commit --amend
 	# pull push
 	pl = pull
+	plr = pull --rebase
 	pu = push
 	puu = push -u
 	# remote
