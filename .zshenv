@@ -24,7 +24,8 @@ export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46
 export FZF_DEFAULT_OPTS="--reverse --extended --cycle --ansi --tac"
 ##############################
 # source
-source $HOME/.zalias
+ZSHFILESPATH=$HOME/.zsh
+source $ZSHFILESPATH/aliases.zsh
 
 
 #############################
