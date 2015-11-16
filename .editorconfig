@@ -7,7 +7,13 @@ end_of_line = lf
 indent_size = 4
 
 [*.go]
-indent_size = 16
+indent_size = 4
 
-[*.{html,scss,coffee,json}]
+[*.swift]
+indent_size = 4
+
+[*.{h,m}]
+indent_size = 4
+
+[*.{html,scss,coffee,json,css}]
 indent_size = 2
