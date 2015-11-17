@@ -16,6 +16,7 @@
 	aliases     = !git config --get-regexp alias
 	# check out
 	co = checkout
+	cot = checkout -t
 	o = checkout
 	# log
 	tree = log --all --graph --color=always --format=\"%x09%C(auto)%h%Creset -%C(auto)%d%Creset %s %C(green)(%cr)%Creset %C(blue)<%an>%Creset\"
