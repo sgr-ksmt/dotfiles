@@ -209,6 +209,7 @@ bindkey '^r' peco-select-history
 chpwd() {
     ls_abbrev
 }
+
 ls_abbrev() {
     if [[ ! -r $PWD ]]; then
         return
@@ -245,6 +246,26 @@ ls_abbrev() {
     fi
 }
 
+function _show_git_status() {
+    if [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" = 'true' ]; then
+        echo -e "\e[0;33m--- git status ---\e[0m"
+        git status -sb
+    echo
+    fi
+    return 0
+}
+
+function show_git_status() {
+    echo
+    _show_git_status
+    echo
+    zle reset-prompt
+    return 0
+}
+zle -N show_git_status
+bindkey '^x^g' show_git_status
+
+
 # show ls & git status
 # http://qiita.com/yuyuchu3333/items/e9af05670c95e2cc5b4d
 function show_status() {
@@ -254,18 +275,15 @@ function show_status() {
     fi
     echo
     ls_abbrev
-    if [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" = 'true' ]; then
-        echo -e "\e[0;33m--- git status ---\e[0m"
-        git status -sb
-    echo
-    fi
+    _show_git_status
     echo
     zle reset-prompt
     return 0
 }
-
 zle -N show_status
 bindkey '^[' show_status
+
+
 
 # ghq + peco 
 # cd to repository path
