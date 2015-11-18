@@ -13,7 +13,7 @@
 	trustExitCode = true
 [alias]
 	# aliases
-	aliases     = !git config --get-regexp alias
+	aliases = !git config --get-regexp alias
 	# check out
 	co = checkout
 	o = checkout
@@ -36,8 +36,17 @@
 	puu = push -u
 	# remote
 	update = fetch --all --prune
-	push-all = "!f() { git push --all && git push --tags;}; f"
+	push-all = !git push --all && git push --tags
 	rtag = ls-remote --tags
+	# github
+	# 自分が作った全てのPull Request、Issueを開く
+	byme = !hub browse -- issues/created_by/$(git config user.username) && hub browse -- pulls/$(git config user.username)
+	# 自分にアサインされている全てのPull Request、Issueを開く
+	tome = !hub browse -- issues/assigned/$(git config user.username) && hub browse -- pulls/assigned/$(git config user.username)
+	# 現在いるブランチのPull Requestを確認する
+	seepr = !hub browse -- pull/$(git symbolic-ref --short HEAD)
+	# 現在いるブランチのPull Requestを新規作成する
+	pr = !hub browse -- compare/$(git symbolic-ref --short HEAD)'?'expand=1'&'body=%23%23%20%E7%9B%AE%E7%9A%84%0A%0A%23%23%20%E5%A4%89%E6%9B%B4%E5%86%85%E5%AE%B9
 [color]
 	ui = auto
 [log]
