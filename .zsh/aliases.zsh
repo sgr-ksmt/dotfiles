@@ -61,7 +61,7 @@ alias -g F='$(git-changed-files)'
 
 # get issue-number with ghi
 function git-issue-number(){
-    ghi list | sed -e '1,1d' | peco | sed -e 's/^ *\([0-9][0-9]*\).*$/\1/g'
+    ghi list | sed -e '1,1d' | fzf --prompt "Issue Numbers>" | sed -e 's/^ *\([0-9][0-9]*\).*$/\1/g'
 }
 alias -g IN='$(git-issue-number)'
 #####
