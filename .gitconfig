@@ -26,9 +26,10 @@
 	         };f"
 	# commit, merge
 	st = status -sb
-	addall = add -A .
+#	addall = add -A .
 	mnf = merge --no-ff
 	fix = commit --amend
+	unstage = reset HEAD 
 	# pull push
 	pl = pull
 	plr = pull --rebase
