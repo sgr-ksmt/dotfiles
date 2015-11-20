@@ -23,7 +23,7 @@
 	today = "!f () {\
 	             git log --oneline --since=midnight --color=always --date=iso \
 	             --author=\"$(git config user.name)\" \
-	             --format=\" - %C(auto)%h%Creset -%C(auto)%d%Creset %s %C(green)(%ad)%Creset\";\
+	             --format=\" - %C(auto)%h%Creset : %s %C(green)(%ad)%Creset\";\
 	         };f"
 	# commit, merge
 	st = status -sb
