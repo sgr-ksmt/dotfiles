@@ -300,7 +300,7 @@ bindkey '^]' fzf-src
 
 # gitignore.io
 function _gigen() { curl -s https://www.gitignore.io/api/$1 ;}
-alias gigen='_gigen $(_gigen list | gsed "s/,/\n/g" | fzf --multi --prompt="Select ignore >" | gsed "N; s/\n/,/g")'
+alias gigen='_gigen $(_gigen list | gsed "s/,/\n/g" | fzf --multi --prompt="Select ignore >" | gsed "N; s/\n/,/g") > .gitignore'
 
 ###########################################
 
