@@ -173,18 +173,10 @@ esac
 
 #######################################
 
-## antigen
-if [[ -f $HOME/antigen/antigen.zsh ]]; then
-  source $HOME/antigen/antigen.zsh
-  antigen bundle zsh-users/zsh-syntax-highlighting
-  antigen bundle zsh-users/zsh-completions src
-  antigen bundle b4b4r07/enhancd
-  antigen apply
+source $ZSHFILESPATH/zplugrc.zsh
 
-  # enhancd
 ENHANCD_FILTER=fzf:peco
 export ENHANCD_FILTER
-fi
 
 
 #######################################
@@ -285,7 +277,7 @@ bindkey '^[' show_status
 
 
 
-# ghq + peco 
+# ghq + peco
 # cd to repository path
 function fzf-src () {
   local selected_dir=$(ghq list -p | fzf --query "$LBUFFER" --prompt="SRC DIRECTORY>")
@@ -304,11 +296,11 @@ alias gigen='_gigen $(_gigen list | gsed "s/,/\n/g" | fzf --multi --prompt="Sele
 
 ###########################################
 
-## zsh compile
- if [ ! -f ~/.zshrc.zwc -o ~/.zshrc -nt ~/.zshrc.zwc ]; then
-   zcompile ~/.zshrc
- fi
-# zsh profile
-if (which zprof > /dev/null) ;then
-  zprof | less
-fi
+# ## zsh compile
+#  if [ ! -f ~/.zshrc.zwc -o ~/.zshrc -nt ~/.zshrc.zwc ]; then
+#    zcompile ~/.zshrc
+#  fi
+# # zsh profile
+# if (which zprof > /dev/null) ;then
+#   zprof | less
+# fi
