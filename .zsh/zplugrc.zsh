@@ -7,8 +7,8 @@ zplug "zsh-users/zsh-completions"
 
 zplug "k4rthik/git-cal", as:command, frozen:1
 
-zplug "plugins/git", from:oh-my-zsh
-zplug "plugins/rbenv", from:oh-my-zsh
+# zplug "plugins/git", from:oh-my-zsh
+# zplug "plugins/rbenv", from:oh-my-zsh
 
 zplug "b4b4r07/enhancd", of:"*.sh"
 
