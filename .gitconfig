@@ -58,7 +58,6 @@
 	decorate = short
 [push]
 	default = simple
-
 [merge "mergepbx"]
     name = XCode project files merger
     driver = /usr/local/bin/mergepbx %O %A %B
