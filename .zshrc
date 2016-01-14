@@ -33,6 +33,8 @@ local WHITE='%F{white}'
 
 # emacs key bind
 bindkey -e
+bindkey -r '^G'
+bindkey -r '^g'
 
 # command history
 HISTFILE=~/.zsh_history
@@ -252,11 +254,42 @@ function show_git_status() {
     _show_git_status
     echo
     zle reset-prompt
-    return 0
+#    return 0
 }
 zle -N show_git_status
-bindkey '^x^g' show_git_status
+bindkey '^G^G' show_git_status
 
+function peco-github-prs () {
+  local pr=$(hub issue 2> /dev/null | grep 'pull' | fzf --exit-0 +m --query "$LBUFFER" | sed -e 's/.*( \(.*\) )$/\1/')
+  if [ -n "$pr" ]; then
+    BUFFER="open ${pr}"
+    zle accept-line
+  else
+    echo
+    echo "No opened PR found."
+    echo
+  fi
+  zle reset-prompt
+}
+zle -N peco-github-prs
+bindkey '^G^P' peco-github-prs
+
+# show list & browse Issue
+
+function peco-github-issues () {
+  local issue=$(hub issue 2> /dev/null | grep 'issues' | fzf --exit-0 +m --query "$LBUFFER" | sed -e 's/.*( \(.*\) )$/\1/')
+  if [ -n "$issue" ]; then
+    BUFFER="open ${issue}"
+    zle accept-line
+  else
+    echo
+    echo "No opened issues found."
+    echo
+  fi
+  zle reset-prompt
+}
+zle -N peco-github-issues
+bindkey '^G^I' peco-github-issues
 
 # show ls & git status
 # http://qiita.com/yuyuchu3333/items/e9af05670c95e2cc5b4d
