@@ -119,7 +119,7 @@ zstyle ':completion:*' ignore-parents parent pwd ..
 
 # sudo completion
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
-                   /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
+/usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
 
 # ps コマンドのプロセス名補完
 zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
@@ -130,9 +130,9 @@ source /usr/local/git/contrib/completion/git-prompt.sh
 
 ## Prompt
 precmd () {
-PROMPT=$GREEN'[%n]'$DEFAULT' '$BLUE'%~'$DEFAULT' '$RED'$(__git_ps1 "(%s)")'$DEFAULT'
+  PROMPT=$GREEN'[%n]'$DEFAULT' '$BLUE'%~'$DEFAULT' '$RED'$(__git_ps1 "(%s)")'$DEFAULT'
 $ '
-RPROMPT=$GREEN'(%*)'$DEFAULT
+  RPROMPT=$GREEN'(%*)'$DEFAULT
 }
 
 # git ps1 settings
@@ -149,28 +149,28 @@ GIT_PS1_SHOWCOLORHINTS=true
 # $ hoge.txt C
 # mollifier delta blog : http://mollifier.hatenablog.com/entry/20100317/p1
 if which pbcopy >/dev/null 2>&1 ; then
-    # Mac
-    alias -g C='| pbcopy'
+  # Mac
+  alias -g C='| pbcopy'
 elif which xsel >/dev/null 2>&1 ; then
-    # Linux
-    alias -g C='| xsel --input --clipboard'
+  # Linux
+  alias -g C='| xsel --input --clipboard'
 elif which putclip >/dev/null 2>&1 ; then
-    # Cygwin
-    alias -g C='| putclip'
+  # Cygwin
+  alias -g C='| putclip'
 fi
 
 ########################################
 # OS 別の設定
 case ${OSTYPE} in
-    darwin*)
-        #Mac用の設定
-        export CLICOLOR=1
-        alias ls='ls -G -F'
-        ;;
-    linux*)
-        #Linux用の設定
-        alias ls='ls -F --color=auto'
-        ;;
+  darwin*)
+  #Mac用の設定
+  export CLICOLOR=1
+  alias ls='ls -G -F'
+  ;;
+  linux*)
+  #Linux用の設定
+  alias ls='ls -F --color=auto'
+  ;;
 esac
 
 #######################################
@@ -190,9 +190,9 @@ export ENHANCD_FILTER
 ## cmd history serarch with peco
 
 function peco-select-history() {
-   BUFFER=$(\history -n -r 1 | fzf --query "$LBUFFER" --prompt="History > ")
-   CURSOR=$#BUFFER
-   zle clear-screen
+  BUFFER=$(\history -n -r 1 | fzf --query "$LBUFFER" --prompt="History > ")
+  CURSOR=$#BUFFER
+  zle clear-screen
 }
 zle -N peco-select-history
 bindkey '^r' peco-select-history
@@ -201,73 +201,75 @@ bindkey '^r' peco-select-history
 # http://qiita.com/yuyuchu3333/items/b10542db482c3ac8b059
 
 chpwd() {
-    ls_abbrev
+  ls_abbrev
 }
 
 ls_abbrev() {
-    if [[ ! -r $PWD ]]; then
-        return
-    fi
-    # -a : Do not ignore entries starting with ..
-    # -C : Force multi-column output.
-    # -F : Append indicator (one of */=>@|) to entries.
-    local cmd_ls='ls'
-    local -a opt_ls
-    opt_ls=('-aCF' '--color=always')
-    case "${OSTYPE}" in
-        freebsd*|darwin*)
-            if type gls > /dev/null 2>&1; then
-                cmd_ls='gls'
-            else
-                # -G : Enable colorized output.
-                opt_ls=('-aCFG')
-            fi
-            ;;
-    esac
-
-    local ls_result
-    ls_result=$(CLICOLOR_FORCE=1 COLUMNS=$COLUMNS command $cmd_ls ${opt_ls[@]} | sed $'/^\e\[[0-9;]*m$/d')
-
-    local ls_lines=$(echo "$ls_result" | wc -l | tr -d ' ')
-
-    if [ $ls_lines -gt 10 ]; then
-        echo "$ls_result" | head -n 5
-        echo '...'
-        echo "$ls_result" | tail -n 5
-        echo "$(command ls -1 -A | wc -l | tr -d ' ') files exist"
+  if [[ ! -r $PWD ]]; then
+    return
+  fi
+  # -a : Do not ignore entries starting with ..
+  # -C : Force multi-column output.
+  # -F : Append indicator (one of */=>@|) to entries.
+  local cmd_ls='ls'
+  local -a opt_ls
+  opt_ls=('-aCF' '--color=always')
+  case "${OSTYPE}" in
+    freebsd*|darwin*)
+    if type gls > /dev/null 2>&1; then
+      cmd_ls='gls'
     else
-        echo "$ls_result"
+      # -G : Enable colorized output.
+      opt_ls=('-aCFG')
     fi
-}
+    ;;
+  esac
 
-function _show_git_status() {
-    if [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" = 'true' ]; then
-        echo -e "\e[0;33m--- git status ---\e[0m"
-        git status -sb
-    echo
-    fi
-    return 0
+  local ls_result
+  ls_result=$(CLICOLOR_FORCE=1 COLUMNS=$COLUMNS command $cmd_ls ${opt_ls[@]} | sed $'/^\e\[[0-9;]*m$/d')
+
+  local ls_lines=$(echo "$ls_result" | wc -l | tr -d ' ')
+
+  local header="--- [$PWD] ---"
+  local footer="${(r:${#header}::-:)}"
+  echo -e "\e[0;33m$header\e[0m"
+  if [ $ls_lines -gt 10 ]; then
+    echo "$ls_result" | head -n 5
+    echo '...'
+    echo "$ls_result" | tail -n 5
+    echo "$(command ls -1 -A | wc -l | tr -d ' ') files exist"
+  else
+    echo "$ls_result"
+  fi
+  echo -e "\e[0;33m$footer\e[0m"
 }
 
 function show_git_status() {
+  if [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" = 'true' ]; then
+    local repo_name=$(git rev-parse --show-toplevel | xargs basename )
+    local header="--- git status ($repo_name) ---"
+    local footer="${(r:${#header}::-:)}"
     echo
-    _show_git_status
-    echo
-    zle reset-prompt
-#    return 0
+    echo -e "\e[0;33m$header\e[0m"
+    git status -sb
+    echo -e -n "\e[0;33m$footer\e[0m"
+    zle accept-line
+  fi
 }
 zle -N show_git_status
-bindkey '^G^G' show_git_status
+bindkey '^X^G' show_git_status
 
 function peco-github-prs () {
-  local pr=$(hub issue 2> /dev/null | grep 'pull' | fzf --exit-0 +m --query "$LBUFFER" | sed -e 's/.*( \(.*\) )$/\1/')
+  local prs=$(hub issue 2> /dev/null | grep 'pull')
+  if [ -z "$prs" ]; then
+    echo -n 'No opened PRs found.'
+    zle accept-line
+    return
+  fi
+  local pr=$(echo "$prs" | fzf --exit-0 +m --query "$LBUFFER" | sed -e 's/.*( \(.*\) )$/\1/')
   if [ -n "$pr" ]; then
     BUFFER="open ${pr}"
     zle accept-line
-  else
-    echo
-    echo "No opened PR found."
-    echo
   fi
   zle reset-prompt
 }
@@ -277,14 +279,16 @@ bindkey '^G^P' peco-github-prs
 # show list & browse Issue
 
 function peco-github-issues () {
-  local issue=$(hub issue 2> /dev/null | grep 'issues' | fzf --exit-0 +m --query "$LBUFFER" | sed -e 's/.*( \(.*\) )$/\1/')
+  local issues=$(hub issue 2> /dev/null | grep 'issues')
+  if [ -z "$issues" ]; then
+    echo -n 'No opened issues found.'
+    zle accept-line
+    return
+  fi
+  local issue=$(echo "$issues" | fzf --exit-0 +m --query "$LBUFFER" | sed -e 's/.*( \(.*\) )$/\1/')
   if [ -n "$issue" ]; then
     BUFFER="open ${issue}"
     zle accept-line
-  else
-    echo
-    echo "No opened issues found."
-    echo
   fi
   zle reset-prompt
 }
@@ -294,16 +298,14 @@ bindkey '^G^I' peco-github-issues
 # show ls & git status
 # http://qiita.com/yuyuchu3333/items/e9af05670c95e2cc5b4d
 function show_status() {
-    if [ -n "$BUFFER" ]; then
-        zle accept-line
-        return 0
-    fi
-    echo
-    ls_abbrev
-    _show_git_status
-    echo
-    zle reset-prompt
+  if [ -n "$BUFFER" ]; then
+    zle accept-line
     return 0
+  fi
+  echo
+  ls_abbrev
+  show_git_status
+  zle accept-line
 }
 zle -N show_status
 bindkey '^[' show_status
