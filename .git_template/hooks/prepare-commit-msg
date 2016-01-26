@@ -1,0 +1,9 @@
+if [ "$2" == "" ] ; then
+mv $1 $1.tmp
+issueNum=$(git branch| grep '*' | grep 'issue/' | sed -e 's/\* //g' | sed -e 's/issue\///g'
+)
+if [ "${issueNum}" != "" ] ; then
+echo " #$issueNum" > $1
+fi
+cat $1.tmp >> $1
+fi

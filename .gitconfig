@@ -1,5 +1,5 @@
 [user]
-	name = Suguru Kishimoto
+	name = sgr-ksmt
 	email = melodydance.k.s@gmail.com
 [core]
 	excludesfile = /Users/Kishimoto/.gitignore_global
@@ -69,3 +69,5 @@
 	user = sgr-ksmt
 [ghi]
 	token = !security find-internet-password -a sgr-ksmt -s github.com -l 'ghi token' -w
+[init]
+	templatedir = ~/.git_template
