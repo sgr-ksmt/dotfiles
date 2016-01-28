@@ -330,6 +330,10 @@ bindkey '^]' fzf-src
 # alias gigen='_gigen $(_gigen list | gsed "s/,/\n/g" | fzf --multi --prompt="Select ignore >" | gsed "N; s/\n/,/g") > .gitignore'
 alias gibogen='gibo -l | sed "/=/d" | tr "\t", "\n" | sed "/^$/d" | sort | fzf | xargs gibo'
 
+function mkdircd () {
+  mkdir -p "$@" && eval cd "\"\$$#\"";
+}
+
 ###########################################
 
 # ## zsh compile
