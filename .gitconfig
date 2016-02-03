@@ -14,10 +14,17 @@
 [alias]
 	# aliases
 	aliases = !git config --get-regexp alias
+	# commit
+	c = commit -v
+	ce = commit -v --allow-empty
 	# check out
+	b = branch
 	co = checkout
+	cob = checkout -b
 	cot = checkout -t
 	o = checkout
+	# remote
+	r = remote
 	# log
 	tree = log --graph --color=always --format=\"%x09%C(auto)%h%Creset -%C(auto)%d%Creset %s %C(green)(%cr)%Creset %C(blue)<%an>%Creset\"
         treeall = log --graph --all --color=always --format=\"%x09%C(auto)%h%Creset -%C(auto)%d%Creset %s %C(green)(%cr)%Creset %C(blue)<%an>%Creset\"
@@ -26,7 +33,7 @@
                      --since=midnight --date=iso \
 	             --author=\"$(git config user.name)\" \
 	             --format=\" - %C(auto)%h%Creset : %s %C(green)(%ad)%Creset\";\
-          	 };f"	
+          	 };f"
 	today-output = "!f () {\
 	                    git log --oneline --reverse --branches \
                             --since=midnight --date=iso \

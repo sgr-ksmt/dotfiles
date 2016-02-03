@@ -1,0 +1,11 @@
+# Set Variables
+set main-view = id date author commit-title:graph=yes,refs=yes
+set refs-view = id date author commit-title:graph=yes,refs=yes
+
+set vertical-split = yes
+
+# Set Key Bind
+
+bind status + !git commit --amend
+
+bind refs R @git rebase -i %(branch)

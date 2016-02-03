@@ -64,30 +64,14 @@ function git-issue-number(){
     ghi list | sed -e '1,1d' | fzf --prompt "Issue Numbers>" | sed -e 's/^ *\([0-9][0-9]*\).*$/\1/g'
 }
 alias -g IN='$(git-issue-number)'
+
+alias -g GH='`curl -sL https://api.github.com/users/$(git config --global user.name)/repos | jq -r ".[].full_name" | fzf +m --prompt "GITHUB REPOS>" | head -n 1`'
 #####
+
 
 # git alias
 alias github='hub'
 alias g='git'
-alias gf='git-flow'
-alias gall='git addall'
-alias gb='git branch'
-alias gbd='git branch -d '
-alias gc='git commit -v'
-alias gcm='git commit -m -v'
-alias gl='git log'
-alias gm='git merge --no-ff'
-alias gp='git pull'
-alias gce='gc --allow-empty'
-alias gss='git status -s'
-alias gf='git flow'
-alias gff='gf feature'
-alias gffs='gff start'
-alias gfff='gff finish'
-alias gffp='gff publish'
-alias gfr='gf release'
-alias gfrs='gf release start'
-alias gfrf='gf release finish'
 
 # fshow - git commit browser (enter for show, ctrl-d for diff)
 fshow() {
