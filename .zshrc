@@ -398,3 +398,6 @@ SHELLSCRIPT
 # if (which zprof > /dev/null) ;then
 #   zprof | less
 # fi
+
+# added by travis gem
+[ -f /Users/Kishimoto/.travis/travis.sh ] && source /Users/Kishimoto/.travis/travis.sh
