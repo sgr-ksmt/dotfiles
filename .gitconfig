@@ -3,7 +3,7 @@
 	email = melodydance.k.s@gmail.com
 [core]
 	excludesfile = /Users/Kishimoto/.gitignore_global
-	editor = emacs -nw
+	editor = vim -c \"set fenc=utf-8\"
 	autocrlf = input
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
