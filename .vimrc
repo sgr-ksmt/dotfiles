@@ -44,7 +44,7 @@ nnoremap # :<C-u>set hlsearch<Return>#
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 " Unite.vim bufferの起動
 nnoremap <C-h> :Unite file_mru<CR>
-
+inoremap <silent> jj <ESC>
 "" Leader
 let mapleader = "\<Space>"
 nnoremap <Leader>o :CtrlP<CR>
