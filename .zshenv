@@ -30,3 +30,4 @@ export FZF_DEFAULT_OPTS="--reverse --cycle --ansi --multi"
 # source
 ZSHFILESPATH=$HOME/.zsh
 source $ZSHFILESPATH/aliases.zsh
+source $ZSHFILESPATH/functions.zsh
