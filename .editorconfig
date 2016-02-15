@@ -24,6 +24,7 @@ indent_size = 2
 
 # markdown
 [*.md]
+indent_size = 4
 trim_trailing_whitespace = false
 insert_final_newline = true
 
