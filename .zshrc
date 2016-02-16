@@ -180,6 +180,9 @@ source $ZSHFILESPATH/zplugrc.zsh
 ENHANCD_FILTER=fzf:peco
 export ENHANCD_FILTER
 
+function command_not_found_handler() {
+  echo "(」・ω・)」うー！(／・ω・)／にゃー！→「$1」";
+}
 
 #######################################
 
