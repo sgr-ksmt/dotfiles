@@ -1,67 +1,6 @@
-## new-script template
-## http://qiita.com/blackenedgold/items/c9e60e089974392878c8
-new-script() {
-    cat <<'SHELLSCRIPT' > "$1"
-#!/bin/sh
-usage() {
-    cat <<HELP
-NAME:
-   $0 -- {one sentence description}
-
-SYNOPSIS:
-  $0 [-h|--help]
-  $0 [--verbose]
-
-DESCRIPTION:
-   {description here}
-
-  -h  --help      Print this help.
-      --verbose   Enables verbose mode.
-
-EXAMPLE:
-  {examples if any}
-
-HELP
-}
-
-main() {
-    SCRIPT_DIR="$(cd $(dirname "$0"); pwd)"
-
-    for ARG; do
-        case "$ARG" in
-            --help) usage; exit 0;;
-            --verbose) set -x;;
-            --) break;;
-            -*)
-                OPTIND=1
-                while getopts h OPT "$ARG"; do
-                    case "$OPT" in
-                        h) usage; exit 0;;
-                    esac
-                done
-                ;;
-        esac
-    done
-
-    # do something
-}
-
-main "$@"
-
-SHELLSCRIPT
-    chmod +x "$1"
-}
-
-new-podspec() {
-  if [ $# -lt 1 ]; then
-    echo "Library name required."
-    exit 1
-  fi
-  : ${2:=1.0.0}
-  cat << PODSPEC > "$1.podspec"
 Pod::Spec.new do |s|
-  s.name     = "$1"
-  s.version  = "$2"
+  s.name     = "Hoge"
+  s.version  = "0.3"
   s.summary  = "___Summary___"
   s.homepage = "https://github.com/sgr-ksmt/#{s.name}"
 
@@ -88,5 +27,3 @@ Pod::Spec.new do |s|
 
   # s.dependency ""
 end
-PODSPEC
-}
