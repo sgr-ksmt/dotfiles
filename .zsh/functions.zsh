@@ -64,17 +64,17 @@ Pod::Spec.new do |s|
   s.version  = "$2"
   s.summary  = "___Summary___"
   s.homepage = "https://github.com/sgr-ksmt/#{s.name}"
-
   s.author = {
       "Suguru Kishimoto" => "melodydance.k.s@gmail.com"
   }
-
-  s.ios.deployment_target = "8.0"
-  s.source_files = "#{s.name}/**/*.swift"
   s.source = {
       :git => "#{s.homepage}.git",
       :tag => "#{s.version}",
   }
+
+  s.ios.deployment_target = "8.0"
+  s.source_files = "#{s.name}/**/*.swift"
+  # s.dependency ""
 
   s.license = {
     :type => "MIT",
@@ -86,7 +86,6 @@ Pod::Spec.new do |s|
     LICENSE
   }
 
-  # s.dependency ""
 end
 PODSPEC
 }
