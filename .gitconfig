@@ -13,7 +13,7 @@
 	trustExitCode = true
 [alias]
 	# aliases
-	aliases = !git config --get-regexp alias | sed 's/^alias.//g' | sed 's/ / = /1'
+	aliases = !git config --get-regexp alias | grep -v aliases | sed 's/^alias.//g' | sed 's/ /\\\t => /1' | sort
 
 	# commit
 	c = commit -v
