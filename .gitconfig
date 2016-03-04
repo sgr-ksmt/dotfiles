@@ -26,6 +26,7 @@
 	o = checkout
 	# remote
 	r = remote
+	rau = remote add upstream
 	# log
 	tree = log --graph --color=always --format=\"%x09%C(auto)%h%Creset -%C(auto)%d%Creset %s %C(green)(%cr)%Creset %C(blue)<%an>%Creset\"
         treeall = log --graph --all --color=always --format=\"%x09%C(auto)%h%Creset -%C(auto)%d%Creset %s %C(green)(%cr)%Creset %C(blue)<%an>%Creset\"
