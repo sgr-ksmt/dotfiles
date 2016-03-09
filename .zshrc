@@ -130,7 +130,7 @@ source /usr/local/git/contrib/completion/git-prompt.sh
 
 ## Prompt
 precmd () {
-  PROMPT=$GREEN'[%n]'$DEFAULT' '$BLUE'%~'$DEFAULT' '$RED'$(__git_ps1 "(%s)")'$DEFAULT'
+  PROMPT=$GREEN'[%n]'$DEFAULT' '$BLUE"$(pwd | sed -e "s,^$HOME,~," | perl -pe "s/~\/(.ghq|.go\/src|src)\/.+?\//ghq:/")"$DEFAULT' '$RED'$(__git_ps1 "(%s)")'$DEFAULT'
 $ '
   RPROMPT=$GREEN'(%*)'$DEFAULT
 }
