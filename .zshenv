@@ -31,6 +31,3 @@ export FZF_DEFAULT_OPTS="--reverse --cycle --ansi --multi"
 ZSHFILESPATH=$HOME/.zsh
 source $ZSHFILESPATH/aliases.zsh
 source $ZSHFILESPATH/functions.zsh
-export SWIFTENV_ROOT="$HOME/.swiftenv"
-export PATH="$SWIFTENV_ROOT/bin:$PATH"
-eval "$(swiftenv init -)"

@@ -349,5 +349,6 @@ function mkdircd () {
 #   zprof | less
 # fi
 
+if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
 # added by travis gem
 [ -f /Users/Kishimoto/.travis/travis.sh ] && source /Users/Kishimoto/.travis/travis.sh
