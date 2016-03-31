@@ -76,7 +76,7 @@ git-checkout-from-issue() {
   if [ -z "$number" ]; then
     return
   fi
-  echo "issue/$number"
+  echo "bugfix/issue_$number"
 }
 alias -g IB='$(git-checkout-from-issue)'
 
