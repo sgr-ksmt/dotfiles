@@ -1,6 +1,6 @@
 if [ "$2" == "" ] ; then
 mv $1 $1.tmp
-issueNum=$(git branch| grep '*' | grep 'issue/' | sed -e 's/\* //g' | sed -e 's/issue\///g'
+issueNum=$(git branch| grep '*' | grep 'bugfix/issue_' | sed -e 's/\* //g' | sed -e 's/bugfix\/issue_//g'
 )
 if [ "${issueNum}" != "" ] ; then
 echo " #$issueNum" > $1
