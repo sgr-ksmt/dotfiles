@@ -80,3 +80,5 @@
 	token = !security find-internet-password -a sgr-ksmt -s github.com -l 'ghi token' -w
 [init]
 	templatedir = ~/.git_template
+[fetch]
+	prune = true
