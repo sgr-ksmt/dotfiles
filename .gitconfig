@@ -61,6 +61,7 @@
 	seepr = !hub browse -- pull/$(git symbolic-ref --short HEAD)
 	# 現在いるブランチのPull Requestを新規作成する
 	pr = !hub browse -- compare/$(git symbolic-ref --short HEAD)'?'expand=1'&'body=%23%23%20%E7%9B%AE%E7%9A%84%0A%0A%23%23%20%E5%A4%89%E6%9B%B4%E5%86%85%E5%AE%B9
+	f = fetch
 [color]
 	ui = auto
 [log]
