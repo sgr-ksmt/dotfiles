@@ -9,7 +9,7 @@ zplug "k4rthik/git-cal", as:command, frozen:1
 # zplug "plugins/git", from:oh-my-zsh
 # zplug "plugins/rbenv", from:oh-my-zsh
 
-zplug "b4b4r07/enhancd", of:"*.sh"
+zplug "b4b4r07/enhancd", use:"*.sh"
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
@@ -17,5 +17,3 @@ if ! zplug check --verbose; then
         echo; zplug install
     fi
 fi
-
-zplug load --verbose
