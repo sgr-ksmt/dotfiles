@@ -1,4 +1,3 @@
-
 source ~/.zplug/init.zsh
 
 zplug "zsh-users/zsh-syntax-highlighting"
@@ -17,3 +16,5 @@ if ! zplug check --verbose; then
         echo; zplug install
     fi
 fi
+
+zplug load
