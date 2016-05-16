@@ -1,5 +1,5 @@
 
-source ~/.zplug/zplug
+source ~/.zplug/init.zsh
 
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-completions"
