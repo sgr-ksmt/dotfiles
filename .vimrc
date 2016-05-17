@@ -52,10 +52,10 @@ nnoremap <Leader>w :w<CR>
 
 "" NeoBundle
 call neobundle#begin(expand('~/.vim/bundle/'))
-NeoBundle 'git://github.com/kien/ctrlp.vim.git'
-NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
-NeoBundle 'git://github.com/scrooloose/nerdtree.git'
-NeoBundle 'git://github.com/scrooloose/syntastic.git'
+NeoBundle 'https://github.com/kien/ctrlp.vim.git'
+NeoBundle 'https://github.com/Shougo/neobundle.vim.git'
+NeoBundle 'https://github.com/scrooloose/nerdtree.git'
+NeoBundle 'https://github.com/scrooloose/syntastic.git'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
