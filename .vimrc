@@ -75,7 +75,7 @@ call neobundle#end()
 "" colorscheme
 let g:rehash256 = 1
 colorscheme molokai
-colorscheme custom
+"" colorscheme custom
 syntax on
 
 
@@ -169,3 +169,13 @@ imap <C-b>  <Left>
 imap <C-f>  <Right>
 imap <C-n>  <Down>
 imap <C-p>  <UP>
+
+if(!empty(neobundle#get_not_installed_bundle_names()))
+  echomsg 'Not installed bundles: '
+    \ string(neobundle#get_not_installed_bundle_names())
+  if confirm('Install bundles now?', "yes\nNo", 2) == 1
+    NeoBundleInstall
+    source ~/.vimrc
+  endif
+end
+
