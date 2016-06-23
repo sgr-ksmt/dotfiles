@@ -5,6 +5,7 @@
 	excludesfile = /Users/Kishimoto/.gitignore_global
 	editor = vim -c \"set fenc=utf-8\"
 	autocrlf = input
+	whitespace = cr-at-eol
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path =
