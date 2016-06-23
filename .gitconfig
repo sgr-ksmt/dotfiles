@@ -84,3 +84,7 @@
 	templatedir = ~/.git_template
 [fetch]
 	prune = true
+[pager]
+	diff = diff-highlight | less
+[diff]
+	compactionHeuristic = true

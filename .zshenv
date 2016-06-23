@@ -7,6 +7,7 @@
 export LANG=ja_JP.UTF-8
 
 export PATH="/usr/local/bin:$PATH"
+export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
 
 # go path
 if [ -x "`which go`" ]; then
