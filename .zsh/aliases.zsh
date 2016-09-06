@@ -39,6 +39,7 @@ alias -g B='`git branch -a | fzf --prompt "Branches>" | head -n 1 | sed -e "s/^\
 alias -g R='`git remote | fzf --prompt "Remotes>" | head -n 1`'
 # tags
 alias -g T='`git tag | fzf --prompt "Tags>" | head -n 1`'
+
 # remote tags
 function git-remote-tags(){
     local tags
@@ -64,6 +65,14 @@ function git-issue-number(){
 alias -g IN='$(git-issue-number)'
 
 alias -g GH='`curl -sL https://api.github.com/users/$(git config --global user.name)/repos | jq -r ".[].full_name" | fzf +m --prompt "GITHUB REPOS>" | head -n 1`'
+
+# swiftlint rules select with fzf
+function swiftlint-rule-name(){
+    swiftlint rules | grep -v -e '^\+\-*+' -e '^.*identifier' | awk '{ print $2 }' | fzf
+}
+
+alias -g SLR='$(swiftlint-rule-name)'
+
 #####
 
 git-checkout-from-issue() {
