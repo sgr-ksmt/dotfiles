@@ -34,7 +34,7 @@ alias -g G='| grep'
 ## for git
 
 # branches
-alias -g B='`git branch -a | fzf --prompt "Branches>" | head -n 1 | sed -e "s/^\*\s*//g"`'
+alias -g B='`git branch | fzf --prompt "Branches>" | head -n 1 | sed -e "s/^\*\s*//g"`'
 # remotes
 alias -g R='`git remote | fzf --prompt "Remotes>" | head -n 1`'
 # tags
