@@ -24,7 +24,8 @@
 	co = checkout
 	cob = checkout -b
 	cot = checkout -t
-	o = checkout
+  o = checkout
+  bdm = !git branch --merged | grep -vE '^\\*|master$|develop$' | xargs -I % git branch -d %
 	# remote
 	r = remote
 	rau = remote add upstream
