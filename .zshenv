@@ -6,8 +6,6 @@
 # language
 export LANG=ja_JP.UTF-8
 
-export PATH="/usr/local/bin:$PATH"
-export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
 
 # go path
 if [ -x "`which go`" ]; then
@@ -16,9 +14,8 @@ if [ -x "`which go`" ]; then
     export PATH="$PATH:$GOROOT/bin:$GOPATH/bin"
 fi
 
-# rbenv path
-export PATH="$HOME/.rbenv/bin:$PATH"
-if which rbenv > /dev/null; then eval "$(rbenv init - zsh)"; fi
+export PATH="/usr/local/bin:$PATH"
+export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
 
 #eval "$(rbenv init - zsh)"
 

@@ -349,6 +349,10 @@ function mkdircd () {
 #   zprof | less
 # fi
 
+# rbenv path
+export PATH="$HOME/.rbenv/bin:$PATH"
+if which rbenv > /dev/null; then eval "$(rbenv init - )"; fi
+
 if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
 # added by travis gem
 [ -f /Users/Kishimoto/.travis/travis.sh ] && source /Users/Kishimoto/.travis/travis.sh
