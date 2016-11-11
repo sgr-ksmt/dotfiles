@@ -354,6 +354,14 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 if which rbenv > /dev/null; then eval "$(rbenv init - )"; fi
 
 if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
+
+# go path
+if [ -x "`which go`" ]; then
+    export GOROOT=`go env GOROOT`
+    export GOPATH="$HOME/go"
+    export PATH="$PATH:$GOROOT/bin:$GOPATH/bin"
+fi
+
 # added by travis gem
 [ -f /Users/Kishimoto/.travis/travis.sh ] && source /Users/Kishimoto/.travis/travis.sh
 

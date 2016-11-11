@@ -7,13 +7,6 @@
 export LANG=ja_JP.UTF-8
 
 
-# go path
-if [ -x "`which go`" ]; then
-    export GOROOT=`go env GOROOT`
-    export GOPATH="$HOME/go"
-    export PATH="$PATH:$GOROOT/bin:$GOPATH/bin"
-fi
-
 export PATH="/usr/local/bin:$PATH"
 export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
 
