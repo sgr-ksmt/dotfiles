@@ -40,6 +40,9 @@ alias -g R='`git remote | fzf --prompt "Remotes>" | head -n 1`'
 # tags
 alias -g T='`git tag | fzf --prompt "Tags>" | head -n 1`'
 
+# toybox
+alias -g TB='`toybox list | fzf --prompt "Playgrounds>" | sed -E "s/\(.*\)$//g"`'
+
 # remote tags
 function git-remote-tags(){
     local tags
