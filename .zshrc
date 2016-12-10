@@ -1,9 +1,3 @@
-# based on :少し凝った zshrc
-# http://mollifier.mit-license.org/
-
-########################################
-
-
 # don't duplicate path
 typeset -U path cdpath fpath manpath
 
@@ -193,7 +187,7 @@ function command_not_found_handler() {
 ## cmd history serarch with peco
 
 function peco-select-history() {
-  BUFFER=$(\history -n -r 1 | fzf --query "$LBUFFER" --prompt="History > ")
+  BUFFER=$(\history -n -r 1 | fzf --no-sort +m --query "$LBUFFER" --prompt="History > ")
   CURSOR=$#BUFFER
   zle clear-screen
 }

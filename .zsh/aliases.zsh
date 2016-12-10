@@ -92,21 +92,6 @@ git-checkout-from-issue() {
 }
 alias -g IB='$(git-checkout-from-issue)'
 
-# git-checkout-from-issue() {
-#   local issues=$(hub issue 2> /dev/null | grep 'issues')
-#   if [ -z "$issues" ]; then
-#     echo "issue not found." 1>&2
-#     return
-#   fi
-#   local number=$(echo "$issues" | peco --query "$LBUFFER" | sed 's/^[^0-9]*\([0-9]*\).*$/\1/1')
-#   if [ -z "$number" ]; then
-#     return
-#   fi
-#   echo "issue/$number"
-# }
-# alias -g IB='$(git-checkout-from-issue)'
-
-
 # git alias
 alias github='hub'
 alias g='git'
