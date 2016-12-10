@@ -186,13 +186,13 @@ function command_not_found_handler() {
 # function git(){hub "$@"}
 ## cmd history serarch with peco
 
-function peco-select-history() {
+function select-history() {
   BUFFER=$(\history -n -r 1 | fzf --no-sort +m --query "$LBUFFER" --prompt="History > ")
   CURSOR=$#BUFFER
   zle clear-screen
 }
-zle -N peco-select-history
-bindkey '^r' peco-select-history
+zle -N select-history
+bindkey '^r' select-history
 
 # limitation of ls
 # http://qiita.com/yuyuchu3333/items/b10542db482c3ac8b059
