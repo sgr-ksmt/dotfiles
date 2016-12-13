@@ -1,8 +1,10 @@
 source ~/.zplug/init.zsh
 
+EMOJI_CLI_KEYBIND="^X^E"
+
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-completions"
-
+zplug "b4b4r07/emoji-cli"
 zplug "k4rthik/git-cal", as:command, frozen:1
 
 # zplug "plugins/git", from:oh-my-zsh
