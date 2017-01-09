@@ -16,7 +16,7 @@
 [alias]
 	# aliases
 	aliases = !git config --get-regexp alias | grep -v aliases | sed 's/^alias.//g' | sed 's/ /\\\t => /1' | sort
-
+	undo = "!f() { git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; }; f"
 	# commit
 	c = commit -v
 	ce = commit -v --allow-empty
