@@ -24,7 +24,7 @@
 	b = branch
 	co = checkout
 	cob = checkout -b
-	cot = checkout -t
+	cot = "!f() { git checkout -t $1/$2; }; f"
   o = checkout
   bdm = !git branch --merged | grep -vE '^\\*|master$|develop$' | xargs -I % git branch -d %
 	# remote
