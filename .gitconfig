@@ -55,10 +55,9 @@
 	# pull push
 	pl = pull
 	plr = pull --rebase
-	pu = push
+  pu = push
+  pucb = ![[ $(git config "branch.$(git symbolic-ref --short HEAD).merge") = '' ]] && git push -u origin $(git symbolic-ref --short HEAD) || git push
   puu = push -u
-  pucb = !git push origin $(git symbolic-ref --short HEAD)
-  puucb = !git push -u origin $(git symbolic-ref --short HEAD)
 	# remote
 	update = fetch --all --prune
 	push-all = !git push --all && git push --tags
