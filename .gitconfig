@@ -56,7 +56,9 @@
 	pl = pull
 	plr = pull --rebase
 	pu = push
-	puu = push -u
+  puu = push -u
+  pucb = !git push origin $(git symbolic-ref --short HEAD)
+  puucb = !git push -u origin $(git symbolic-ref --short HEAD)
 	# remote
 	update = fetch --all --prune
 	push-all = !git push --all && git push --tags
