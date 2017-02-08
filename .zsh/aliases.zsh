@@ -19,7 +19,7 @@ alias openrr='cd ~/Project/RubyRails/'
 alias opengc='open -a "/Applications/Google Chrome.app"/'
 alias emacs="emacs -nw"
 alias mou='open -a "/Applications/Mou.app"'
-alias openxcw='~/custom_shell/openxcw.sh'
+alias xc='~/custom_shell/openxcw.sh'
 alias zipcontentfiles='find . -maxdepth 1 -mindepth 1 -type d -exec zip -r {}.zip {} \;'
 alias reboot_shell='exec $SHELL -l'
 
