@@ -77,6 +77,7 @@ function swiftlint-rule-name(){
 
 alias -g SLR='$(swiftlint-rule-name)'
 
+alias atom='rmate'
 #####
 
 git-checkout-from-issue() {
