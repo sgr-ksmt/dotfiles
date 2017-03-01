@@ -87,11 +87,11 @@
 	templatedir = ~/.git_template
 [fetch]
 	prune = true
-[pager]
-	diff = diff-highlight | less
+#[pager]
+#	diff = diff-highlight | less
 [diff]
 	compactionHeuristic = true
-[gpg]
-	program = /usr/local/bin/gpg
-[commit]
-	gpgsign = true
+#[gpg]
+#	program = /usr/local/bin/gpg
+#[commit]
+#	gpgsign = true
