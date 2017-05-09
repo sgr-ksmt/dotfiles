@@ -28,6 +28,8 @@ set mouse=n
 " これをしないと候補選択時に Scratch ウィンドウが開いてしまう
 set completeopt=menuone
 
+nnoremap ; :
+nnoremap : ;
 "" ショートカット
 " 移動系
 nnoremap <Down> gj
