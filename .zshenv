@@ -22,3 +22,6 @@ export FZF_DEFAULT_OPTS="--reverse --cycle --ansi --multi"
 ZSHFILESPATH=$HOME/.zsh
 source $ZSHFILESPATH/aliases.zsh
 source $ZSHFILESPATH/functions.zsh
+
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh

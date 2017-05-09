@@ -1,7 +1,8 @@
 [user]
 	name = sgr-ksmt
 	email = melodydance.k.s@gmail.com
-	signingkey = 24FB917629FFEAE9
+  # signingkey = 24FB917629FFEAE9
+  signingkey = ACD8BE412CE2407D
 [core]
 	excludesfile = /Users/Kishimoto/.gitignore_global
 	editor = vim -c \"set fenc=utf-8\"

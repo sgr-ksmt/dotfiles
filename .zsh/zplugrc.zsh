@@ -1,4 +1,3 @@
-source ~/.zplug/init.zsh
 
 EMOJI_CLI_KEYBIND="^X^E"
 
