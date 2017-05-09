@@ -4,7 +4,7 @@
   # signingkey = 24FB917629FFEAE9
   signingkey = ACD8BE412CE2407D
 [core]
-	excludesfile = /Users/Kishimoto/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	editor = vim -c \"set fenc=utf-8\"
 	autocrlf = input
 	whitespace = cr-at-eol
