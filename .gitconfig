@@ -2,7 +2,7 @@
 	name = sgr-ksmt
 	email = melodydance.k.s@gmail.com
   # signingkey = 24FB917629FFEAE9
-  signingkey = ACD8BE412CE2407D
+  # signingkey = ACD8BE412CE2407D
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = vim -c \"set fenc=utf-8\"
@@ -92,7 +92,7 @@
 	diff = diff-highlight | less
 [diff]
 	compactionHeuristic = true
-[gpg]
-	program = /usr/local/bin/gpg
-[commit]
-	gpgsign = true
+# [gpg]
+# 	program = /usr/local/bin/gpg
+# [commit]
+# 	gpgsign = true
