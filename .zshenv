@@ -10,6 +10,8 @@ export PATH="/usr/local/git/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
 
+export NODE_PATH=$(npm root -g)
+
 #eval "$(rbenv init - zsh)"
 
 # define LS_COLORS
