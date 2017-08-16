@@ -327,6 +327,10 @@ function mkdircd () {
   mkdir -p "$@" && eval cd "\"\$$#\"";
 }
 
+function git-set-my-config () {
+    git config --local user.name 'sgr-ksmt'
+    git config --local user.email 'melodydance.k.s@gmail.com'
+}
 
 ###########################################
 
