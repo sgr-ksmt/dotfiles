@@ -349,6 +349,8 @@ if which rbenv > /dev/null; then eval "$(rbenv init - )"; fi
 
 if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
 
+if which xcenv > /dev/null; then eval "$(xcenv init -)"; fi
+
 # go path
 if [ -x "`which go`" ]; then
     export GOROOT=`go env GOROOT`
