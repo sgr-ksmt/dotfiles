@@ -97,3 +97,5 @@
 # 	program = /usr/local/bin/gpg
 # [commit]
 # 	gpgsign = true
+[http]
+	cookiefile = /Users/suguru-kishimoto/.gitcookies

@@ -358,6 +358,7 @@ if [ -x "`which go`" ]; then
     export PATH="$PATH:$GOROOT/bin:$GOPATH/bin"
 fi
 
+
 # added by travis gem
 [ -f /Users/Kishimoto/.travis/travis.sh ] && source /Users/Kishimoto/.travis/travis.sh
 
