@@ -90,7 +90,7 @@
 [fetch]
 	prune = true
 [pager]
-	diff = diff-highlight | less
+	diff = less
 [diff]
 	compactionHeuristic = true
 # [gpg]

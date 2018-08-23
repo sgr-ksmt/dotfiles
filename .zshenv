@@ -13,7 +13,7 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 export PATH=$PATH:/opt/brew/bin/yarn
 
 export NODE_PATH=$(npm root -g)
-
+export ANDROID_HOME=/Users/suguru-kishimoto/Library/Android/sdk
 #eval "$(rbenv init - zsh)"
 
 # define LS_COLORS
@@ -27,5 +27,7 @@ ZSHFILESPATH=$HOME/.zsh
 source $ZSHFILESPATH/aliases.zsh
 source $ZSHFILESPATH/functions.zsh
 
-export ZPLUG_HOME=/usr/local/opt/zplug
+export ZPLUG_HOME=/opt/brew/opt/zplug
 source $ZPLUG_HOME/init.zsh
+# export ZPLUG_HOME=/usr/local/opt/zplug
+# source $ZPLUG_HOME/init.zsh

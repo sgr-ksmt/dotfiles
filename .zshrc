@@ -376,3 +376,5 @@ fi
 # fi
 
 source ~/.cpad2/profile
+
+mov2gif(){ basename=${1##*/}; filename=${basename%.*}; ffmpeg -i ${filename}.mov -vf scale=320:-1 -r 10 ${filename}.gif;}
