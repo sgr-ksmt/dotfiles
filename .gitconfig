@@ -99,3 +99,5 @@
 # 	gpgsign = true
 [http]
 	cookiefile = /Users/suguru-kishimoto/.gitcookies
+[include]
+  path = ~/.gitconfig.local
