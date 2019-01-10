@@ -1,9 +1,27 @@
-if [ "$2" == "" ] ; then
-mv $1 $1.tmp
-issueNum=$(git branch| grep '*' | grep 'bugfix/issue_' | sed -e 's/\* //g' | sed -e 's/bugfix\/issue_//g'
+
+#!/bin/sh
+
+out=$1
+
+function message() {
+  mv $out $out.tmp
+  cat <<EOS > $out
+$1
+EOS
+  cat $out.tmp >> $out
+}
+
+str=$(cat <<-EOS
+🐛 :bug: fix bugs
+👍 :+1: improve function
+✨ :sparkles: add new function
+♻️  :recycle: refactoring
+🚿 :shower: delete unused function
+💚 :green_heart: improve tests / CI
+👕 :shirt: fix Lint error / fix code style
+🚀 :rocket: improve performance
+🆙 :up: update package information or libraries
+EOS
 )
-if [ "${issueNum}" != "" ] ; then
-echo " #$issueNum" > $1
-fi
-cat $1.tmp >> $1
-fi
+type=$(echo "$str" | fzf | awk 'match($0, /(:.*:)/) {print substr($0, RSTART, RLENGTH)}')
+message "$type"
