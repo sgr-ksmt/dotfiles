@@ -1,4 +1,8 @@
-## dotfiles
+# dotfiles
+
+```bash
+$ curl -L https://sudev.page.link/dot | sh
+```
 
 ### Todo
 
