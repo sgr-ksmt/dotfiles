@@ -41,11 +41,8 @@ source $ZPLUG_HOME/init.zsh
 export ANDROID_HOME=/Users/suguru-kishimoto/Library/Android/sdk
 
 # go path
-if [ -x "`which go`" ]; then
-    export GOROOT=`go env GOROOT`
-    export GOPATH="$HOME/go"
-    export PATH="$PATH:$GOROOT/bin:$GOPATH/bin"
-fi
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
 
 # History
 # History file
