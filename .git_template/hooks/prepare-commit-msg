@@ -1,4 +1,3 @@
-
 #!/bin/sh
 
 out=$1
@@ -12,6 +11,7 @@ EOS
 }
 
 str=$(cat <<-EOS
+
 🐛 :bug: fix bugs
 👍 :+1: improve function
 ✨ :sparkles: add new function
@@ -23,5 +23,7 @@ str=$(cat <<-EOS
 🆙 :up: update package information or libraries
 EOS
 )
-type=$(echo "$str" | fzf | awk 'match($0, /(:.*:)/) {print substr($0, RSTART, RLENGTH)}')
-message "$type"
+emoji=$(echo "${str}" | fzf | awk 'match($0, /(:.*:)/) {print substr($0, RSTART, RLENGTH)}')
+if [ -n "${emoji}" ]; then
+  message ${emoji}
+fi
