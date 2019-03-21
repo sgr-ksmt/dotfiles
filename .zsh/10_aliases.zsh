@@ -11,7 +11,7 @@ alias mkdir='mkdir -p'
 
 # enable alias after sudu
 alias sudo='sudo '
-
+alias be='bundle exec'
 alias cof='clear; ls -lrt'
 alias xcrmc='rm -rf ~/Library/Developer/Xcode/DerivedData/*'
 alias df='df -h'
