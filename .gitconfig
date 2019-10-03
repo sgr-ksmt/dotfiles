@@ -8,6 +8,7 @@
 	editor = vim -c \"set fenc=utf-8\"
 	autocrlf = input
 	whitespace = cr-at-eol
+	ignorecase = false
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path =
