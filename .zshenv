@@ -8,6 +8,7 @@ export LANG=ja_JP.UTF-8
 
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export PATH="/usr/local/git/bin:$PATH"
+export PATH="$PATH:/opt/brew/bin"
 export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
 export PATH=$PATH:/opt/brew/bin/yarn
 export PATH="$HOME/.anyenv/bin:$PATH"

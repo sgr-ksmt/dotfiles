@@ -4,7 +4,7 @@
 
 module.exports = {
   config: {
-    opacity: 0.95,
+    opacity: 1.0,
 
     // Choose either "stable" for receiving highly polished,
     // or "canary" for less polished but more frequent updates
@@ -23,7 +23,7 @@ module.exports = {
     cursorShape: 'BLOCK',
 
     // set to true for blinking cursor
-    cursorBlink: false,
+    cursorBlink: true,
 
     // color of the text
     foregroundColor: '#fff',
@@ -50,7 +50,7 @@ module.exports = {
     showWindowControls: '',
 
     // custom padding (css format, i.e.: `top right bottom left`)
-    padding: '12px 14px',
+    padding: '16px 16px',
 
     // the full list. if you're going to provide the full color palette,
     // including the 6 x 6 color cubes and the grayscale map, just provide
@@ -74,45 +74,36 @@ module.exports = {
       lightWhite: '#ffffff'
     },
 
-    // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
-    // if left empty, your system's login shell will be used by default
-    //
-    // Windows
-    // - Make sure to use a full path if the binary name doesn't work
-    // - Remove `--login` in shellArgs
-    //
-    // Bash on Windows
-    // - Example: `C:\\Windows\\System32\\bash.exe`
-    //
-    // Powershell on Windows
-    // - Example: `C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe`
     shell: '',
-
-    // for setting shell arguments (i.e. for using interactive shellArgs: ['-i'])
-    // by default ['--login'] will be used
     shellArgs: ['--login'],
-
-    // for environment variables
     env: {},
-
-    // set to false for no bell
     bell: 'SOUND',
+    copyOnSelect: false,
+    scrollback: 10000,
+
+    // Plugins
 
     hypercwd: {
       initialWorkingDirectory: '~/'
     },
-    // if true, selected text will automatically be copied to the clipboard
-    copyOnSelect: false,
-
-    scrollback: 10000
-
-    // if true, on right click selected text will be copied or pasted if no
-    // selection is present (true by default on Windows)
-    // quickEdit: true
-
-    // URL to custom bell
-    // bellSoundURL: 'http://example.com/bell.mp3',
-
+    MaterialTheme: {
+      // Set the theme variant,
+      // OPTIONS: 'Darker', 'Palenight', 'Ocean', ''
+      theme: 'Darker',
+      // [Optional] Set the rgba() app background opacity, useful when enableVibrance is true
+      // OPTIONS: From 0.1 to 1
+      backgroundOpacity: '1',
+      // [Optional] Set the accent color for the current active tab
+      accentColor: '#64FFDA',
+      // [Optional] Mac Only. Need restart. Enable the vibrance and blurred background
+      // OPTIONS: 'dark', 'ultra-dark', 'bright'
+      // NOTE: The backgroundOpacity should be between 0.1 and 0.9 to see the effect.
+      vibrancy: 'dark'
+    },
+    hyperBorder: {
+      borderColors: ['#fc1da7', '#fba506'],
+      borderWidth: '2px'
+    }
     // for advanced config flags please refer to https://hyper.is/#cfg
   },
 
@@ -130,7 +121,9 @@ module.exports = {
     "hypercwd",
     "hyper-opacity",
     "hyper-pane",
-    "hyper-quit"
+    "hyper-quit",
+    // "hyperpower",
+    "hyperborder"
   ],
 
   // in development, you can create a directory under
