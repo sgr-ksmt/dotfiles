@@ -1,8 +1,6 @@
 [user]
 	name = sgr-ksmt
-	email = suguru-kishimoto@cookpad.com
-  # signingkey = 24FB917629FFEAE9
-  # signingkey = ACD8BE412CE2407D
+	email = melodydance.k.s@gmail.com
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = vim -c \"set fenc=utf-8\"
@@ -94,11 +92,7 @@
 	diff = less
 [diff]
 	compactionHeuristic = true
-# [gpg]
-# 	program = /usr/local/bin/gpg
-# [commit]
-# 	gpgsign = true
 [http]
-	cookiefile = /Users/suguru-kishimoto/.gitcookies
+	cookiefile = /Users/melodydance/.gitcookies
 [include]
   path = ~/.gitconfig.local

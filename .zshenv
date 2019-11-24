@@ -37,7 +37,7 @@ export FZF_DEFAULT_OPTS="--reverse --cycle --ansi --multi"
 export ENHANCD_FILTER=fzf:peco
 ##############################
 
-export ZPLUG_HOME=/opt/brew/opt/zplug
+export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
 export ANDROID_HOME=/Users/suguru-kishimoto/Library/Android/sdk
