@@ -40,7 +40,7 @@ export ENHANCD_FILTER=fzf:peco
 export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
-export ANDROID_HOME=/Users/suguru-kishimoto/Library/Android/sdk
+export ANDROID_HOME=$HOME/Library/Android/sdk
 
 # go path
 export GOPATH=$HOME/go
