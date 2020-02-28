@@ -4,7 +4,7 @@ zplug "zsh-users/zsh-completions"
 zplug "b4b4r07/emoji-cli"
 zplug "k4rthik/git-cal", as:command, frozen:1
 
-zplug "b4b4r07/enhancd", use:"*.sh"
+zplug "b4b4r07/enhancd", use:"init.sh"
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
