@@ -76,19 +76,24 @@ function show_git_status() {
 zle -N show_git_status
 bindkey '^X^G' show_git_status
 
-function peco-github-prs () {
-  local prs=$(hub issue 2> /dev/null | grep 'pull')
-  if [ -z "$prs" ]; then
-    echo -n 'No opened PRs found.'
-    zle accept-line
-    return
-  fi
-  local pr=$(echo "$prs" | fzf --exit-0 +m --query "$LBUFFER" | sed -e 's/.*( \(.*\) )$/\1/')
-  if [ -n "$pr" ]; then
-    BUFFER="open ${pr}"
-    zle accept-line
-  fi
-  zle reset-prompt
+function checkout-pull-request () {
+    local selected_pr_id=$(gh pr list | fzf | awk '{ print $1 }')
+    if [ -n "$selected_pr_id" ]; then
+        BUFFER="gh pr checkout ${selected_pr_id}"
+        zle accept-line
+    fi
+    zle clear-screen
 }
-zle -N peco-github-prs
-bindkey '^G^P' peco-github-prs
+zle -N checkout-pull-request
+bindkey "^g^p^p" checkout-pull-request
+
+function view-pull-request () {
+    local selected_pr_id=$(gh pr list | fzf | awk '{ print $1 }')
+    if [ -n "$selected_pr_id" ]; then
+        BUFFER="gh pr view ${selected_pr_id}"
+        zle accept-line
+    fi
+    zle clear-screen
+}
+zle -N view-pull-request
+bindkey "^g^p^v" view-pull-request
