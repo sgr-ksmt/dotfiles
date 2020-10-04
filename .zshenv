@@ -13,6 +13,8 @@ export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
 export PATH=$PATH:/opt/brew/bin/yarn
 export PATH="$HOME/.anyenv/bin:$PATH"
 export PATH="$PATH:$HOME/flutter/bin"
+export PATH="$PATH:$HOME/flutter/.pub-cache/bin"
+export PATH="$PATH:$HOME/flutter/bin/cache/dart-sdk/bin"
 
 # auto completions path
 fpath=(/opt/brew/share/zsh-completions $fpath)
