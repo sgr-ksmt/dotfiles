@@ -94,3 +94,5 @@
 	cookiefile = /Users/melodydance/.gitcookies
 [include]
   path = ~/.gitconfig.local
+[pull]
+	rebase = false
