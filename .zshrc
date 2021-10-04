@@ -9,3 +9,4 @@ source ~/.zsh.local
 [ -f /Users/Kishimoto/.travis/travis.sh ] && source /Users/Kishimoto/.travis/travis.sh
 # anyenv
 eval "$(anyenv init - zsh)"
+. /usr/local/opt/asdf/asdf.sh
