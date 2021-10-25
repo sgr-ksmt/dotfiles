@@ -42,3 +42,8 @@ indent_size = 2
 [{Makefile,**.mk}]
 indent_style = tab
 indent_size = 2
+
+[*.{yml,yaml}]
+indent_size = 2
+trim_trailing_whitespace = false
+quote_type = double
