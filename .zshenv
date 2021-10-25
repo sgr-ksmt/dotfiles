@@ -12,7 +12,6 @@ export PATH="$PATH:/opt/brew/bin"
 export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
 export PATH=$PATH:/opt/brew/bin/yarn
 export PATH="$HOME/.anyenv/bin:$PATH"
-# export PATH="$PATH:$HOME/flutter/bin"
 export PATH="$PATH:$HOME/fvm/default/bin"
 export PATH="$PATH:$HOME/.pub-cache/bin"
 
