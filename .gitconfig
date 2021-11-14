@@ -22,11 +22,10 @@
 	ce = commit -v --allow-empty
 	# check out
 	b = branch
-	co = checkout
-	cob = checkout -b
+	cob = switch -c
 	cot = checkout -t
-  o = checkout
-  bdm = !git branch --merged | egrep -v '(^\\*|master|main|dev)' | xargs git branch -d
+	o = switch
+	bdm = !git branch --merged | egrep -v '(^\\*|master|main|dev)' | xargs git branch -d
 	# remote
 	r = remote
 	rau = remote add upstream
