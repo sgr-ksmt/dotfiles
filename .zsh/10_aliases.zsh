@@ -94,7 +94,6 @@ git-checkout-from-issue() {
 alias -g IB='$(git-checkout-from-issue)'
 
 # git alias
-alias github='hub'
 alias g='git'
 
 # fshow - git commit browser (enter for show, ctrl-d for diff)

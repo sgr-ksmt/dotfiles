@@ -5,8 +5,6 @@ bindkey -r '^g'
 
 ## custom function & keybind
 
-# hub -> git
-# function git(){hub "$@"}
 ## cmd history serarch with peco
 
 function select-history() {
