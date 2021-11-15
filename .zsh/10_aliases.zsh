@@ -37,7 +37,7 @@ alias ghi='(){gh issue view $1 -w}'
 alias -g PR='`gh pr list | fzf | head -n 1 | cut -f1`'
 alias ghp='(){gh pr view $1 -w}'
 gh alias set reviews 'pr list --search "review:required"' > /dev/null 2>&1
-
+gh alias set prc 'pr create -w -a "@me"' > /dev/null 2>&1
 # branches
 alias -g B='`git branch | fzf --prompt "Branches>" | head -n 1 | sed -e "s/^\*\s*//g"`'
 alias -g RB='`git branch -r | fzf --prompt "Remote Branches>" | head -n 1 | sed -e "s/^\*\s*//g" | sed "s/origin\///"`'
