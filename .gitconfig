@@ -25,7 +25,10 @@
 	cob = switch -c
 	cot = checkout -t
 	o = switch
-	bdm = !git branch --merged | egrep -v '(^\\*|master|main|dev)' | xargs git branch -d
+	bdm = "!f () {\
+    git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -d; \
+    git branch --merged | egrep -v '(^\\*|master|main|dev)' | xargs git branch -d; \
+  };f"
 	# remote
 	r = remote
 	rau = remote add upstream
