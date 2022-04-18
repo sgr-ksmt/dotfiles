@@ -29,6 +29,11 @@
     git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -d; \
     git branch --merged | egrep -v '(^\\*|master|main|dev)' | xargs git branch -d; \
   };f"
+
+	bdmf = "!f () {\
+    git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D; \
+    git branch --merged | egrep -v '(^\\*|master|main|dev)' | xargs git branch -d; \
+  };f"
 	# remote
 	r = remote
 	rau = remote add upstream
