@@ -10,4 +10,4 @@ source ~/.zsh.local
 # anyenv
 eval "$(anyenv init - zsh)"
 eval $(/opt/homebrew/bin/brew shellenv)
-. /usr/local/opt/asdf/asdf.sh
+. $(brew --prefix asdf)/asdf.sh
