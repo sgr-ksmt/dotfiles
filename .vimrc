@@ -51,3 +51,4 @@ inoremap <silent> jj <ESC>
 let mapleader = "\<Space>"
 nnoremap <Leader>o :CtrlP<CR>
 nnoremap <Leader>w :w<CR>
+colorscheme monokai
