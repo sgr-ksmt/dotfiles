@@ -1,0 +1,8 @@
+- brew
+- ghq
+- zplug
+- fzf
+- anyenv
+- asdf
+- fvm
+- code(vscode)
