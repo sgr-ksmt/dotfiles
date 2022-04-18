@@ -8,12 +8,12 @@ export LANG=ja_JP.UTF-8
 
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export PATH="/usr/local/git/bin:$PATH"
-export PATH="$PATH:/opt/brew/bin"
 export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
 export PATH=$PATH:/opt/brew/bin/yarn
 export PATH="$HOME/.anyenv/bin:$PATH"
 export PATH="$PATH:$HOME/fvm/default/bin"
 export PATH="$PATH:$HOME/.pub-cache/bin"
+export PATH="$PATH:/opt/brew/bin"
 
 
 # auto completions path
@@ -39,8 +39,9 @@ export FZF_DEFAULT_OPTS="--reverse --cycle --ansi --multi"
 export ENHANCD_FILTER=fzf:peco
 ##############################
 
-export ZPLUG_HOME=/usr/local/opt/zplug
-source $ZPLUG_HOME/init.zsh
+# export ZPLUG_HOME=/usr/local/opt/zplug
+# source $ZPLUG_HOME/init.zsh
+source ~/.zplug/init.zsh
 
 export ANDROID_HOME=$HOME/Library/Android/sdk
 
