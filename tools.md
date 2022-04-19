@@ -6,3 +6,7 @@
 - asdf
 - fvm
 - code(vscode)
+- gh
+- android studio
+- xcodes
+
