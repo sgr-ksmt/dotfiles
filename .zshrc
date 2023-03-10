@@ -11,3 +11,11 @@ source ~/.zsh.local
 eval "$(anyenv init - zsh)"
 eval $(/opt/homebrew/bin/brew shellenv)
 . $(brew --prefix asdf)/asdf.sh
+
+# pnpm
+export PNPM_HOME="/Users/su/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
