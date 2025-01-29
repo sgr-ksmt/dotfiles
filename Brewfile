@@ -1,8 +1,6 @@
 tap "b4b4r07/history"
 tap "dart-lang/dart"
 tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/core"
 tap "leoafarias/fvm"
 tap "robotsandpencils/made"
 brew "aria2"

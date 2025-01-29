@@ -62,3 +62,5 @@ export LISTMAX=50
 
 export REPORTTIME=5
 export EMOJI_CLI_KEYBIND="^X^E"
+
+export MISE_GLOBAL_CONFIG_FILE="$HOME/.mise_global.toml"
