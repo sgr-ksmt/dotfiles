@@ -14,8 +14,9 @@ export PATH="$HOME/.anyenv/bin:$PATH"
 export PATH="$PATH:$HOME/fvm/default/bin"
 export PATH="$PATH:$HOME/.pub-cache/bin"
 export PATH="$PATH:/opt/brew/bin"
-
-
+export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
+export DENO_INSTALL="$HOME/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
 # auto completions path
 fpath=(/opt/brew/share/zsh-completions $fpath)
 fpath=(/opt/brew/share/zsh/site-functions $fpath)
