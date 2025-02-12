@@ -10,10 +10,3 @@ source ~/.zsh.local
 eval "$(anyenv init - zsh)"
 eval $(/opt/homebrew/bin/brew shellenv)
 eval "$(mise activate zsh)"
-# pnpm
-export PNPM_HOME="$HOME/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
