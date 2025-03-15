@@ -1,3 +1,4 @@
+[tools]
 firebase = "latest"
 node = "22"
 npm = "latest"
