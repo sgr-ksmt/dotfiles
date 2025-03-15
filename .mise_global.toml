@@ -1,0 +1,6 @@
+firebase = "latest"
+node = "22"
+npm = "latest"
+pnpm = "9"
+ruby = "3"
+tfenv = "latest"
