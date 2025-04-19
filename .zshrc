@@ -6,13 +6,11 @@ do
 done
 source ~/.zsh.local
 # added by travis gem
-# anyenv
-eval "$(anyenv init - zsh)"
 eval $(/opt/homebrew/bin/brew shellenv)
 eval "$(mise activate zsh)"
 
 # pnpm
-export PNPM_HOME="/Users/su/Library/pnpm"
+export PNPM_HOME="$HOME/.local/share/mise/installs/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
