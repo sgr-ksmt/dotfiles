@@ -75,6 +75,7 @@
 	push-all = !git push --all && git push --tags
 	rtag = ls-remote --tags
 	f = fetch
+  wtp = worktree prune
 [color]
 	ui = auto
 [log]

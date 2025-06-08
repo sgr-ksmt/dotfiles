@@ -33,20 +33,56 @@ function peco-github-issues () {
 zle -N peco-github-issues
 bindkey '^G^I' peco-github-issues
 
-# show ls & git status
-# http://qiita.com/yuyuchu3333/items/e9af05670c95e2cc5b4d
-function show_status() {
-  if [ -n "$BUFFER" ]; then
-    zle accept-line
-    return 0
+# # show ls & git status
+# # http://qiita.com/yuyuchu3333/items/e9af05670c95e2cc5b4d
+# function show_status() {
+#   if [ -n "$BUFFER" ]; then
+#     zle accept-line
+#     return 0
+#   fi
+#   echo
+#   ls_abbrev
+#   show_git_status
+#   zle accept-line
+# }
+# zle -N show_status
+# bindkey '^[' show_status
+select_worktree() {
+  local worktrees
+  worktrees=$(git worktree list --porcelain | awk '/worktree / {print $2}')
+  if [[ -z "$worktrees" ]]; then
+    zle clear-screen
+    echo "No worktrees found."
+    return 1
   fi
-  echo
-  ls_abbrev
-  show_git_status
-  zle accept-line
+
+  local main_worktree=$(echo "$worktrees" | head -1)
+  local repo_name=$(basename "$main_worktree")
+
+  typeset -A path_map
+  local display_list=""
+  while IFS= read -r worktree_path; do
+    local display_name
+    if [[ "$worktree_path" == "$main_worktree" ]]; then
+      display_name="${repo_name}:main"
+    else
+      local worktree_name=$(basename "$worktree_path")
+      display_name="${repo_name}-worktrees/${worktree_name}"
+    fi
+    path_map[$display_name]=$worktree_path
+    display_list+="${display_name}"$'\n'
+  done <<< "$worktrees"
+
+  local selected
+  selected=$(printf "%s" "$display_list" | fzf)
+  if [[ -n "$selected" ]]; then
+    cd "${path_map[$selected]}"
+    zle accept-line
+  fi
+  zle clear-screen
 }
-zle -N show_status
-bindkey '^[' show_status
+zle -N select_worktree
+bindkey '^[' select_worktree
 
 function fzf-src () {
   local selected_dir=$(ghq list -p | fzf --query "$LBUFFER" --prompt="SRC DIRECTORY>")
