@@ -1,10 +1,19 @@
 [tools]
+"cargo:ripgrep" = "latest"
 firebase = "latest"
 node = "22"
 npm = "latest"
+"npm:@anthropic-ai/claude-code" = "latest"
+"npm:@t09tanaka/mcp-simple-voicevox" = "latest"
+"npm:ccusage" = "latest"
 pipx = "latest"
-pnpm = "10"
+pnpm = "10.16.1"
 ruby = "3"
+rust = "latest"
 tfenv = "latest"
 uv = "latest"
 yarn = "latest"
+
+[tasks.review]
+description = "Review the code"
+run = "pnpm dlx difit"
